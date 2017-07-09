@@ -14,7 +14,7 @@ appeared in.
 ## Roast
 
 Review [all the new tests since
-6.c](https://github.com/perl6/roast/compare/HEAD...6.c-errata) to ensure they
+6.c](https://github.com/perl6/roast/compare/6.c-errata...HEAD) to ensure they
 do belong in 6.d and test desired behaviour.
 
 #### Review Process
