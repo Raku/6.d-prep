@@ -33,6 +33,10 @@ Examples of this happening have showed up in the past.
 
 Jonathan Worthington
 
+### Time Required to Implement
+
+???
+
 # PROPOSED FEATURES
 
 ## Sigils imply :D
@@ -70,6 +74,10 @@ constraining the types of parameters is of higher importance.
 ### Stakeholder
 
 Moritz Lenz
+
+### Time Required to Implement
+
+???
 
 ## Formal Rules for Defining Matched Delimiters/Brackets
 
@@ -122,6 +130,9 @@ but I propose this be made an official part of the Perl 6 standard.
 
 Samantha McVey (samcv)
 
+### Time Required to Implement
+
+???
 
 ## Remove deprecated Test::is_approx
 
@@ -132,6 +143,10 @@ in 6.c-errata without any changes.
 ### Stakeholder
 
 Oh, I thought you said steak... (Zoffix)
+
+### Time Required to Implement
+
+10 hours
 
 ## Properly reserve all `:sym<>` colonpairs on subroutines
 
@@ -150,6 +165,9 @@ unfudged.
 
 Zoffix
 
+### Time Required to Implement
+
+4 hours
 
 ## Use IEEE 754-2008 semantics for num/Num infix:</>, infix:<%>, and infix:<%%>
 
@@ -190,6 +208,10 @@ not declared by IEEE.
 
 Zoffix
 
+### Time Required to Implement
+
+6 hours
+
 ## Remove dummy precision parameters from Rational/Int .Rat and .FatRat coercers
 
 They're dummy parameters that offer more confusion than usefulness. The roast itself
@@ -200,6 +222,10 @@ not a Rat.
 ### Stakeholder
 
 Zoffix
+
+### Time Required to Implement
+
+4 hours
 
 ## Deprecate IO::Path.chdir and IO::Handle.slurp-rest
 
@@ -218,6 +244,10 @@ Per IO Grant work.
 
 Zoffix
 
+### Time Required to Implement
+
+4 hours
+
 ## Swap IO::Path.child to use .child-secure's code
 
 `.child-secure`'s code is commented out below .child's code. Per IO Grant work.
@@ -227,6 +257,10 @@ Docs for .child-secure: https://github.com/perl6/specs/blob/master/v6d.pod
 ### Stakeholder
 
 Zoffix
+
+### Time Required to Implement
+
+2 hours
 
 ## Make all redeclarations fatal
 
@@ -257,6 +291,10 @@ be hard to spot sometimes with large-output programs,
 
 Zoffix
 
+### Time Required to Implement
+
+10 hours
+
 ## Remove Str.lines :$count parameter
 
 An entirely pointless, undocumented, unused, and unloved parameter whose removal is blocked by
@@ -266,6 +304,10 @@ An entirely pointless, undocumented, unused, and unloved parameter whose removal
 
 Zoffix
 
+### Time Required to Implement
+
+2 hours
+
 ## Remove $/ magicalness from %() and @()
 
 And perhaps $() too; Per https://rt.perl.org/Ticket/Display.html?id=131392
@@ -273,6 +315,10 @@ And perhaps $() too; Per https://rt.perl.org/Ticket/Display.html?id=131392
 ### Stakeholder
 
 Zoffix
+
+### Time Required to Implement
+
+30 hours
 
 ## Remove `$*MAIN-ALLOW-NAMED-ANYWHERE`
 
@@ -282,6 +328,10 @@ removed.
 ### Stakeholder
 
 Zoffix
+
+### Time Required to Implement
+
+1 hour
 
 ## Make `$*ARGFILES` := `$*IN` or `IO::ArgFiles.new($*IN)` inside MAIN
 
@@ -299,6 +349,10 @@ Relevant discussions:
 ### Stakeholder
 
 Zoffix
+
+### Time Required to Implement
+
+4 hours
 
 ## De-magicalize '-' in IO::Handle.open
 
@@ -319,3 +373,7 @@ Relevant discussion: https://irclog.perlgeek.de/perl6-dev/2017-06-23#i_14777024
 ### Stakeholder
 
 Zoffix
+
+### Time Required to Implement
+
+4 hours
