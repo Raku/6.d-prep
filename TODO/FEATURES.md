@@ -377,3 +377,25 @@ Zoffix
 ### Time Required to Implement
 
 4 hours
+
+
+## Spec IO::Handle's `.write-internal`, `.read-internal`, `.eof-internal`
+
+The method names should be changed as currently they imply Rakudo-internal methods
+rather than methods users should be overriding to affect all read/write methods.
+
+They should probably use different casing to differentiate them from regular IO::Handle
+methods consumers of IO::Handle would use. Perhaps, `.WRITE-SOURCE`, `.READ-SOURCE`,
+and `.EOF-SOURCE`; as the methods are source for all the other read/write methods.
+
+Spec and document the methods as the proper way to create custom IO::Handle
+subclasses.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+4 hours
+
