@@ -55,6 +55,18 @@ If you spot any questionable tests, bring it up in
 
 * Zoffix (reached commit `5fb2feb9f68f8ea208754bb8f68372e9def63b35`)
 
+## Define More Concrete Spec Errata Rules
+
+* Define specific protocol for how past specs can be changed
+* What is a "test that's wrong"?
+    * How is that wrongness measured?
+    * Who and how many people decide that it's wrong?
+* How do we make users aware of spec errata changes?
+* What does the core dev do with code they wrote that turned out to break possibly-wrong tests?
+    * Specify specific branch where such commits should be kept in
+    * Avoid committing this stuff to `nom` until decision is reached that tests are indeed wrong
+* Make it clear to all core devs that this protocol must be adhered to
+
 ## Feature List
 
 Collect all the features that will be new in 6.d. Many are already implemented,
