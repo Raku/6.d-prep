@@ -61,6 +61,8 @@ If you spot any questionable tests, bring it up in
 * What is a "test that's wrong"?
     * How is that wrongness measured?
     * Who and how many people decide that it's wrong?
+    * Which code is considered the test itself and which code is merely
+        supporting code that isn't explicitly being tested by the test?
 * How do we make users aware of spec errata changes?
 * What does the core dev do with code they wrote that turned out to break possibly-wrong tests?
     * Specify specific branch where such commits should be kept in
