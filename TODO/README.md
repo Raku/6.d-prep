@@ -1,6 +1,29 @@
 
 # List of TODO items required for 6.d language release
 
+## NAMING
+
+### Release Name
+
+The name "Diwali", planned in 2015 to go along with "Christmas" is LTA IMO (Zoffix), as it
+encodes in itself a specific date we're unlikely to meet, and if we meet it, we set a
+precendent we might not want to adhere to.
+
+So instead of "Diwali" I propose we use butterfly-related themes instead. e.g. butterly
+specifies, genera, or other related names.
+
+So far my (Zoffix's) favourite is: **6.d "Dismorphia"**
+It sounds really cool and not butterfly-y at all, so when the
+listener learns that we have this whole them of doing butterfly stuff
+it kicks up the coolness a notch :)
+
+Dismorphia is a [genus of butteflies](https://en.wikipedia.org/wiki/Dismorphia)
+and despite my huge distaste for insects, Dismorphias actually look pretty cool:
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dismorphiapraxinoemale.jpg/1920px-Dismorphiapraxinoemale.jpg)
+
+Other names that start with D are butterfly common names: "Dreamy Dusky-Wing", "Dotted Blue", and "Dainty Sulphur"
+
 ## FEATURES
 
 The [FEATURES.md](FEATURES.md) lists the proposed features that need to be
