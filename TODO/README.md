@@ -1,58 +1,6 @@
 
 # List of TODO items required for 6.d language release
 
-## NAMING
-
-### Release Name
-
-The name "Diwali", planned in 2015 to go along with "Christmas" is LTA IMO (Zoffix), as it
-encodes in itself a specific date we're unlikely to meet, and if we meet it, we set a
-precendent we might not want to adhere to.
-
-So instead of "Diwali" I propose we use butterfly-related themes instead. e.g. butterly
-specifies, genera, or other related names.
-
-So far my (Zoffix's) favourite is: **6.d "Dismorphia"**
-It sounds really cool and not butterfly-y at all, so when the
-listener learns that we have this whole them of doing butterfly stuff
-it kicks up the coolness a notch :)
-
-Dismorphia is a [genus of butteflies](https://en.wikipedia.org/wiki/Dismorphia)
-and despite my huge distaste for insects, Dismorphias actually look pretty cool:
-
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dismorphiapraxinoemale.jpg/1920px-Dismorphiapraxinoemale.jpg)
-
-Other names that start with D are butterfly common names: "Dreamy Dusky-Wing", "Dotted Blue", and "Dainty Sulphur"
-
-### Language Extended Naming
-
-As elaborated [here](https://rakudo.party/post/The-Hot-New-Language-Named-Rakudo) with comments
-[here](https://www.reddit.com/r/perl/comments/6lstqu/the_hot_new_language_named_rakudo/) and
-[here](https://www.reddit.com/r/perl6/comments/6lstq3/the_hot_new_language_named_rakudo/), there's
-a push to improve the language name.
-
-The current mood, as I (Zoffix) perceive it, is: there's room for a name extension (e.g. "Foo Perl 6")
-where "Foo" can be a standalone word people who don't wish to use "Perl" can use. However, the
-change for an entirely new name is not desired.
-
-To resolve this issue, a month before release date, Zoffix is to:
-
-- Collate all the feedback on the matter in presentable, easy to digest manner
-- Collect all of the suggested name extensions offered by various sources
-- Prepare any marketing plans, if time/skill allows, to show the benefits of adjusting the name
-- Give the things to TimToady and ask for:
-    - Executive decision on whether the name extension can be officially made
-    - If yes, decide what the official name extension is
-
-TimToady will have a month to think on the matter and is to give the final decision prior to the 6.d language release.
-
-As this Naming Issue is contentious, please try to place your feedback not into this repo, but
-preferably in [the reddit thread](https://www.reddit.com/r/perl6/comments/6lstq3/the_hot_new_language_named_rakudo/),
-or, if you don't consider yourself a regular member of the Perl 6 Community, in the
-[perl 5 reddit thread](https://www.reddit.com/r/perl/comments/6lstqu/the_hot_new_language_named_rakudo/) instead.
-If you don't have access to reddit, you can DM your feedback [to Zoffix on Twitter](https://twitter.com/zoffix)
-or send a private message to user `Zoffix` on [IRC](https://webchat.freenode.net/?channels=#perl6)
-
 ## FEATURES
 
 The [FEATURES.md](FEATURES.md) lists the proposed features that need to be
@@ -126,3 +74,58 @@ If you spot any questionable tests, bring it up in
 Collect all the features that will be new in 6.d. Many are already implemented,
 documented, and are in use, but they're not part of 6.c language
 (e.g. `Str.parse-base`)
+
+---------
+
+## NAMING
+
+### Release Name
+
+The name "Diwali", planned in 2015 to go along with "Christmas" is LTA IMO (Zoffix), as it
+encodes in itself a specific date we're unlikely to meet, and if we meet it, we set a
+precendent we might not want to adhere to.
+
+So instead of "Diwali" I propose we use butterfly-related themes instead. e.g. butterly
+specifies, genera, or other related names.
+
+So far my (Zoffix's) favourite is: **6.d "Dismorphia"**
+It sounds really cool and not butterfly-y at all, so when the
+listener learns that we have this whole them of doing butterfly stuff
+it kicks up the coolness a notch :)
+
+Dismorphia is a [genus of butteflies](https://en.wikipedia.org/wiki/Dismorphia)
+and despite my huge distaste for insects, Dismorphias actually look pretty cool:
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dismorphiapraxinoemale.jpg/1920px-Dismorphiapraxinoemale.jpg)
+
+Other names that start with D are butterfly common names: "Dreamy Dusky-Wing", "Dotted Blue", and "Dainty Sulphur"
+
+### Language Extended Naming
+
+As elaborated [here](https://rakudo.party/post/The-Hot-New-Language-Named-Rakudo) with comments
+[here](https://www.reddit.com/r/perl/comments/6lstqu/the_hot_new_language_named_rakudo/) and
+[here](https://www.reddit.com/r/perl6/comments/6lstq3/the_hot_new_language_named_rakudo/), there's
+a push to improve the language name.
+
+The current mood, as I (Zoffix) perceive it, is: there's room for a name extension (e.g. "Foo Perl 6")
+where "Foo" can be a standalone word people who don't wish to use "Perl" can use. However, the
+change for an entirely new name is not desired.
+
+To resolve this issue, a month before release date, Zoffix is to:
+
+- Collate all the feedback on the matter in presentable, easy to digest manner
+- Collect all of the suggested name extensions offered by various sources
+- Prepare any marketing plans, if time/skill allows, to show the benefits of adjusting the name
+- Give the things to TimToady and ask for:
+    - Executive decision on whether the name extension can be officially made
+    - If yes, decide what the official name extension is
+
+TimToady will have a month to think on the matter and is to give the final decision prior to the 6.d language release.
+
+As this Naming Issue is contentious, please try to place your feedback not into this repo, but
+preferably in [the reddit thread](https://www.reddit.com/r/perl6/comments/6lstq3/the_hot_new_language_named_rakudo/),
+or, if you don't consider yourself a regular member of the Perl 6 Community, in the
+[perl 5 reddit thread](https://www.reddit.com/r/perl/comments/6lstqu/the_hot_new_language_named_rakudo/) instead.
+If you don't have access to reddit, you can DM your feedback [to Zoffix on Twitter](https://twitter.com/zoffix)
+or send a private message to user `Zoffix` on [IRC](https://webchat.freenode.net/?channels=#perl6)
+
