@@ -254,6 +254,12 @@ Zoffix
 Discussion: https://irclog.perlgeek.de/perl6-dev/2017-04-17#i_14439386
 Docs for .child-secure: https://github.com/perl6/specs/blob/master/v6d.pod
 
+See if there's a way to make even securer operations:
+
+> open the file first and then use readlink syscall on it
+
+https://irclog.perlgeek.de/perl6/2017-07-21#i_14904782
+
 ### Stakeholder
 
 Zoffix
