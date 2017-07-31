@@ -416,3 +416,19 @@ Zoffix
 
 4 hours
 
+## Deprecate .flatmap
+
+Make use of `.flatmap` to issue a deprecation warning in 6.d, to be removed in 6.e. The method
+saves a single character of typing, but hides the behaviour (is the .flat done first or is the .map
+done first), which can easily lead to a trap that the user isn't getting anything flattened.
+
+See also: https://rt.perl.org/Ticket/Display.html?id=130520
+See also: https://github.com/perl6/doc/issues/1428
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+4 hours
