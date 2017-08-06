@@ -75,6 +75,10 @@ Collect all the features that will be new in 6.d. Many are already implemented,
 documented, and are in use, but they're not part of 6.c language
 (e.g. `Str.parse-base`)
 
+## See if we can nail down the META6.json spec
+
+And codify it as tests in roast.
+
 ---------
 
 ## NAMING
