@@ -77,7 +77,10 @@ documented, and are in use, but they're not part of 6.c language
 
 ## See if we can nail down the META6.json spec
 
-And codify it as tests in roast.
+And codify it as tests in roast. Even if entire spec won't be done, would be nice to
+standardize [`"auth"` key](https://irclog.perlgeek.de/perl6/2017-08-09#i_14991431) because
+we're basically ready to have multi-source ecosystem that supports same-name-multiple-author
+naming, but without a nailed down `"auth"` it's hard to make use of that system.
 
 ---------
 
