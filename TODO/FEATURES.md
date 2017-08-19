@@ -277,7 +277,7 @@ Zoffix
 
 ### Time Required to Implement
 
-2 hours
+40 hours
 
 ## Make all redeclarations fatal
 
