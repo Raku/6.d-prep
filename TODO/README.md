@@ -75,6 +75,11 @@ Collect all the features that will be new in 6.d. Many are already implemented,
 documented, and are in use, but they're not part of 6.c language
 (e.g. `Str.parse-base`)
 
+## Experimental Features
+
+See which features that currently require `use experimental` are solid enough to
+make them non-experimental in 6.d
+
 ## See if we can nail down the META6.json spec
 
 And codify it as tests in roast. Even if entire spec won't be done, would be nice to
