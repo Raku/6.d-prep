@@ -13,6 +13,14 @@ appeared in.
 
 ## Roast
 
+### Passing Tests
+
+Ensure Roast stresstest passes on Windows. Currently three open Issues
+exists, showing a bunch of failing tests [#320](https://github.com/perl6/roast/issues/320),
+[#232](https://github.com/perl6/roast/issues/232), and [#197](https://github.com/perl6/roast/issues/197)
+
+### Review 
+
 Review [all the new tests since
 6.c](https://github.com/perl6/roast/compare/6.c-errata...HEAD) to ensure they
 do belong in 6.d and test desired behaviour.
