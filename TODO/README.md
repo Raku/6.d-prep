@@ -13,6 +13,10 @@ appeared in.
 
 ## Roast
 
+### Remove dead files
+
+Remove all the files that are currently skipped.
+
 ### Passing Tests
 
 Ensure Roast stresstest passes on Windows. Currently three open Issues
