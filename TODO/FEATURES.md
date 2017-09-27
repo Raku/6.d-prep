@@ -5,30 +5,7 @@ Please list yourself as stakeholder so we'd know whom to contact if we need
 clarification. If possible, find a volunteer willing to implement your
 proposal (it could be you).
 
-# ALREADY IMPLEMENTED FEATURES
-
-These features are already available with the C<use v6.d.PREVIEW> pragma.
-
-## [IMPLEMENTED] Consistify Naming of `$*INITTIME`
-
-All of our other multi-word dynvars use kebobcase, so `$*INITTIME`
-should be re-named ~~`$*INIT-TIME`~~
-[`$*INIT-INSTANT`](https://github.com/perl6/roast/issues/296#issuecomment-324719710)
-
-There is some mention of it on 5to6 docs and IRC logs, so there
-should be some deprecation period for the old name.
-
-See also:
-- https://github.com/perl6/roast/issues/296
-- https://github.com/perl6/doc/issues/1462
-- https://github.com/perl6/doc/issues/510
-- https://github.com/perl6/roast/issues/296#issuecomment-324719710
-
-### Implementor
-
-Zoffix
-
-## [IMPLEMENTED] Non-blocking await
+## [PARTIALLY IMPLEMENTED] Non-blocking await
 
 *Note: appears to be implemented, but [based on
 this comment](https://irclog.perlgeek.de/perl6-dev/2017-07-06#i_14835079) looks
@@ -55,11 +32,6 @@ Jonathan Worthington
 ### Time Required to Implement
 
 ???
-
---------------
---------------
---------------
---------------
 
 # IN NEED OF IMPLEMENTATION
 
