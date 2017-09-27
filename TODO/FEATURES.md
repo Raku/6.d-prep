@@ -219,21 +219,6 @@ Zoffix
 
 6 hours
 
-## Remove dummy precision parameters from Rational/Int .Rat and .FatRat coercers
-
-They're dummy parameters that offer more confusion than usefulness. The roast itself
-seems confused. There are a whole bunch of trig tests that use these coercers with a
-precision arg for no good reason; almost feels like the writer assumed `1.5` is a Num and
-not a Rat.
-
-### Stakeholder
-
-Zoffix
-
-### Time Required to Implement
-
-4 hours
-
 ## Deprecate IO::Path.chdir and IO::Handle.slurp-rest
 
 Per IO Grant work.

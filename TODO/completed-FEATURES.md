@@ -18,3 +18,16 @@ See also:
 - https://github.com/perl6/roast/issues/296#issuecomment-324719710
 
 
+## [IMPLEMENTED] Remove dummy precision parameters from Rational/Int .Rat and .FatRat coercers
+
+**Since we can't modify methods between languages, the params were deprecated instead,
+for removal in 6.e**
+
+They're dummy parameters that offer more confusion than usefulness. The roast itself
+seems confused. There are a whole bunch of trig tests that use these coercers with a
+precision arg for no good reason; almost feels like the writer assumed `1.5` is a Num and
+not a Rat.
+
+Done in: https://github.com/rakudo/rakudo/commit/4c337e8ef9
+
+
