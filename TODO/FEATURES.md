@@ -283,26 +283,6 @@ Zoffix
 
 4 hours
 
-## Swap IO::Path.child to use .child-secure's code
-
-`.child-secure`'s code is commented out below .child's code. Per IO Grant work.
-Discussion: https://irclog.perlgeek.de/perl6-dev/2017-04-17#i_14439386
-Docs for .child-secure: https://github.com/perl6/specs/blob/master/v6d.pod
-
-See if there's a way to make even securer operations:
-
-> open the file first and then use readlink syscall on it
-
-https://irclog.perlgeek.de/perl6/2017-07-21#i_14904782
-
-### Stakeholder
-
-Zoffix
-
-### Time Required to Implement
-
-40 hours
-
 ## Make all redeclarations fatal
 
 Currently, some redeclarations are fatal, such us trying to declare two `only` subs
