@@ -31,3 +31,17 @@ not a Rat.
 Done in: https://github.com/rakudo/rakudo/commit/4c337e8ef9
 
 
+## [IMPLEMENTED] Deprecate IO::Path.chdir and IO::Handle.slurp-rest
+
+Per IO Grant work.
+
+* `IO::Path.chdir` - the name is a poor choice, as it doesn't **ch** hange
+    any **dir** ectories. Functionality with relative-path argument is directly
+    replaced by `IO::Path.add` method and functionality with absolute-path is
+    directly replaced by `IO::Path.new` or `Cool.IO` methods.
+
+* `IO::Handle.slurp-rest` - removed to make interface consistent with
+    the rest of the language that uses `slurp` as the name for the routine.
+    The `IO::Handle.slurp` was already implemented as part of the IO Grant.
+
+Done in: https://github.com/rakudo/rakudo/commit/6d2adb20f2
