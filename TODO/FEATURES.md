@@ -343,8 +343,8 @@ The method names should be changed as currently they imply Rakudo-internal metho
 rather than methods users should be overriding to affect all read/write methods.
 
 They should probably use different casing to differentiate them from regular IO::Handle
-methods consumers of IO::Handle would use. Perhaps, `.WRITE-SOURCE`, `.READ-SOURCE`,
-and `.EOF-SOURCE`; as the methods are source for all the other read/write methods.
+methods consumers of IO::Handle would use. Perhaps, `.WRITE`, `.READ`,
+and `.EOF`, but would it be confusing with the lower-case methods of the same name?
 
 Spec and document the methods as the proper way to create custom IO::Handle
 subclasses.
