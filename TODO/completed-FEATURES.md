@@ -2,7 +2,35 @@
 This document contains already implemented planned changes for v6.d.
 See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 
-## [IMPLEMENTED] Consistify Naming of `$*INITTIME`
+# Implemented
+
+## Non-blocking await and react
+
+In v6.c, using `await` currently blocks a real thread. In v6.d it will, provided the `await`
+takes place in code running on the thread pool, take a continuation and scheduler its
+resumption after the awaited operation completes.
+
+A react block also becomes non-blocking in the same way (so `start react ...` does not block
+a thread pool thread in v6.d also).
+
+### Rationale
+
+It is quite easy to write code that waits for multiple promises in parallel,
+which can lead to the full thread pool begin tied up in blocking waits,
+leading to a deadlock. Examples of this happening have showed up in the past. Even if
+that doesn't happen, it still can increase the number of threads needed, thus making
+for higher memory use.
+
+### Stakeholder
+
+Jonathan Worthington
+
+### Time Required to Implement
+
+It's implemented, though we should do a spectest run and ecosystem toast with 6.d as
+the default to check there's no surprises.
+
+## Consistify Naming of `$*INITTIME`
 
 All of our other multi-word dynvars use kebobcase, so `$*INITTIME`
 should be re-named ~~`$*INIT-TIME`~~
@@ -18,7 +46,7 @@ See also:
 - https://github.com/perl6/roast/issues/296#issuecomment-324719710
 
 
-## [IMPLEMENTED] Remove dummy precision parameters from Rational/Int .Rat and .FatRat coercers
+## Remove dummy precision parameters from Rational/Int .Rat and .FatRat coercers
 
 **Since we can't modify methods between languages, the params were deprecated instead,
 for removal in 6.e**
@@ -31,7 +59,7 @@ not a Rat.
 Done in: https://github.com/rakudo/rakudo/commit/4c337e8ef9
 
 
-## [IMPLEMENTED] Deprecate IO::Path.chdir and IO::Handle.slurp-rest
+## Deprecate IO::Path.chdir and IO::Handle.slurp-rest
 
 Per IO Grant work.
 
