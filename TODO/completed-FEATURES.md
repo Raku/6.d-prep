@@ -45,3 +45,4 @@ Per IO Grant work.
     The `IO::Handle.slurp` was already implemented as part of the IO Grant.
 
 Done in: https://github.com/rakudo/rakudo/commit/6d2adb20f2
+     and https://github.com/rakudo/rakudo/commit/3341384bfe
