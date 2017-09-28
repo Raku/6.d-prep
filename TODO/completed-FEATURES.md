@@ -85,3 +85,11 @@ in 6.c-errata without any changes.
 ###
 
 Made to die in 6.d in https://github.com/rakudo/rakudo/commit/cd043f2ae4
+
+## Remove Str.lines :$count parameter
+
+Marked as deprecated instead of complete removal in
+https://github.com/rakudo/rakudo/commit/01d4939c38
+
+An entirely pointless, undocumented, unused, and unloved parameter whose removal is blocked by
+[two 6.c tests](https://github.com/perl6/roast/blob/5c703c355d0457f78f1f32a0f3af394ab54be256/S32-str/lines.t#L59-L60)
