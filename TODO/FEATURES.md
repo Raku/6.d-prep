@@ -225,18 +225,6 @@ Zoffix
 
 30 hours
 
-## Remove `$*MAIN-ALLOW-NAMED-ANYWHERE`
-
-It was never specced and currently exists for backwards compatibility with older panda. By 6.d it should not matter and could be
-removed.
-
-### Stakeholder
-
-Zoffix
-
-### Time Required to Implement
-
-1 hour
 
 ## Make `$*ARGFILES` := `$*IN` or `IO::ArgFiles.new($*IN)` inside MAIN
 

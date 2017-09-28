@@ -93,3 +93,11 @@ https://github.com/rakudo/rakudo/commit/01d4939c38
 
 An entirely pointless, undocumented, unused, and unloved parameter whose removal is blocked by
 [two 6.c tests](https://github.com/perl6/roast/blob/5c703c355d0457f78f1f32a0f3af394ab54be256/S32-str/lines.t#L59-L60)
+
+
+## Remove `$*MAIN-ALLOW-NAMED-ANYWHERE`
+
+It was never specced and currently exists for backwards compatibility with older panda. By 6.d it should not matter and could be
+removed.
+
+Removed in https://github.com/rakudo/rakudo/commit/9cb4b167f5
