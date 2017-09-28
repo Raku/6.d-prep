@@ -5,25 +5,22 @@ Please list yourself as stakeholder so we'd know whom to contact if we need
 clarification. If possible, find a volunteer willing to implement your
 proposal (it could be you).
 
-## [PARTIALLY IMPLEMENTED] Non-blocking await
+## [IMPLEMENTED] Non-blocking await and react
 
-*Note: appears to be implemented, but [based on
-this comment](https://irclog.perlgeek.de/perl6-dev/2017-07-06#i_14835079) looks
-like more work is needed*
+In v6.c, using `await` currently blocks a real thread. In v6.d it will, provided the `await`
+takes place in code running on the thread pool, take a continuation and scheduler its
+resumption after the awaited operation completes.
 
-In v6.c, waiting for a promise, either with an explicit `await` or by using its
-`.result` method, currently uses up a thread just for the blocking wait.
-
-After this proposed change has been implemented, waiting doesn't tie up
-a whole thread for each wait.
+A react block also becomes non-blocking in the same way (so `start react ...` does not block
+a thread pool thread in v6.d also).
 
 ### Rationale
 
 It is quite easy to write code that waits for multiple promises in parallel,
 which can lead to the full thread pool begin tied up in blocking waits,
-leading to a deadlock.
-
-Examples of this happening have showed up in the past.
+leading to a deadlock. Examples of this happening have showed up in the past. Even if
+that doesn't happen, it still can increase the number of threads needed, thus making
+for higher memory use.
 
 ### Stakeholder
 
@@ -31,7 +28,8 @@ Jonathan Worthington
 
 ### Time Required to Implement
 
-???
+It's implemented, though we should do a spectest run and ecosystem toast with 6.d as
+the default to check there's no surprises.
 
 # IN NEED OF IMPLEMENTATION
 
