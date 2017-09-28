@@ -113,19 +113,6 @@ Samantha McVey (samcv)
 
 ???
 
-## Remove deprecated Test::is_approx
-
-This is mostly a reminder so we don't forget. Test::is_approx is currently marked as deprecated
-(replaced by `is-approx`). It was decided to leave it in until 6.d, so that we can still use it
-in 6.c-errata without any changes.
-
-### Stakeholder
-
-Oh, I thought you said steak... (Zoffix)
-
-### Time Required to Implement
-
-10 hours
 
 ## Properly reserve all `:sym<>` colonpairs on subroutines
 

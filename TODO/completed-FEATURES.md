@@ -74,3 +74,14 @@ Per IO Grant work.
 
 Done in: https://github.com/rakudo/rakudo/commit/6d2adb20f2
      and https://github.com/rakudo/rakudo/commit/3341384bfe
+
+
+## Remove deprecated Test::is_approx
+
+This is mostly a reminder so we don't forget. Test::is_approx is currently marked as deprecated
+(replaced by `is-approx`). It was decided to leave it in until 6.d, so that we can still use it
+in 6.c-errata without any changes.
+
+###
+
+Made to die in 6.d in https://github.com/rakudo/rakudo/commit/cd043f2ae4
