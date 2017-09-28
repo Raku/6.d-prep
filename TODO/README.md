@@ -153,3 +153,5 @@ or, if you don't consider yourself a regular member of the Perl 6 Community, in 
 If you don't have access to reddit, you can DM your feedback [to Zoffix on Twitter](https://twitter.com/zoffix)
 or send a private message to user `Zoffix` on [IRC](https://webchat.freenode.net/?channels=#perl6)
 
+Update: more info on the naming issue: https://6lang.party/post/6lang-The-Naming-Discussion-Update
+
