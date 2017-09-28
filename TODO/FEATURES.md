@@ -5,7 +5,9 @@ Please list yourself as stakeholder so we'd know whom to contact if we need
 clarification. If possible, find a volunteer willing to implement your
 proposal (it could be you).
 
-## [IMPLEMENTED] Non-blocking await and react
+# IMPLEMENTED
+
+## Non-blocking await and react
 
 In v6.c, using `await` currently blocks a real thread. In v6.d it will, provided the `await`
 takes place in code running on the thread pool, take a continuation and scheduler its
@@ -384,3 +386,48 @@ Zoffix
 ### Time Required to Implement
 
 4 hours
+
+## Really implement hyper/race on Iterables
+
+Currently, .hyper and .race don't really work. Change that for 6.d, so people can use them. Add
+tests covering them.
+
+### Rationale
+
+People keep trying to use them and getting disappointed. "They're fine in 6.d" would be rather
+nice to be able to say.
+
+### Stakeholder
+
+Jonathan Worthington
+
+### Time Required to Implement
+
+1-2 weeks
+
+## Make `start` blocks in sink context attach an error handler
+
+At the moment, any exceptions leaking out will be lost. For this particular case, determined
+through semantic analysis at compile time, a `then` should be attached that will `die` with
+any error that occurs during the execution of the `start` block and goes unhandled by it, so
+the errors will not be lost. Such an error will trigger `uncaught_handler` in the thread pool,
+which by default will bring down the program. Note this is *not* a general sink operation on a
+`Promise`; it applies only to the `start` syntax.
+
+### Rationale
+
+It's rare that people really want to ignore that some background worker they set off failed.
+Most `start` blocks are `await`ed or `then`'d because people care that the work completes.
+The case for an unguraded `start` is most often setting off some application-lifetime worker.
+In that case, the behavior being that it crashing brings the application down is the right
+thing anyway, and desirable given the alternative would be that the application silently stops
+responding, if it was a `start react` that was meant to handle events over the application's
+lifetime.
+
+### Stakeholder
+
+Jonathan Worthington
+
+### Time Required to Implement
+
+1 day
