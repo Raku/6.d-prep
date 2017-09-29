@@ -12,7 +12,7 @@ proposal (it could be you).
 So we could deprecate methods based on it. See
 https://irclog.perlgeek.de/perl6-dev/2017-09-29#i_15233995
 
-Some of the previoud 6.d-fying work was reverted from nom from master in:
+Some of the previoud 6.d-fying work was reverted from `nom` in:
 https://github.com/rakudo/rakudo/commit/22d3d933b3
 https://github.com/rakudo/rakudo/commit/8ed7adf1a6
 https://github.com/rakudo/rakudo/commit/68fdeff3b6
