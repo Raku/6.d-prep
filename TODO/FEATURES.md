@@ -7,6 +7,19 @@ proposal (it could be you).
 
 # IN NEED OF IMPLEMENTATION
 
+## Need a way to know caller's language
+
+So we could deprecate methods based on it. See
+https://irclog.perlgeek.de/perl6-dev/2017-09-29#i_15233995
+
+Some of the previoud 6.d-fying work was reverted from nom from master in:
+https://github.com/rakudo/rakudo/commit/22d3d933b3
+https://github.com/rakudo/rakudo/commit/8ed7adf1a6
+https://github.com/rakudo/rakudo/commit/68fdeff3b6
+https://github.com/rakudo/rakudo/commit/142f772e32
+https://github.com/rakudo/rakudo/commit/a65d5f922a
+https://github.com/rakudo/rakudo/commit/44d5256cd2
+
 ## `use v6.d.PREVIEW` in wrong place needs to throw
 
 For example, this code silently fails. It should throw the same style of
