@@ -15,7 +15,9 @@ appeared in.
 
 ### Remove dead files
 
-Remove all the files that are currently skipped.
+Remove all the files that are currently skipped. (e.g. S24-testing/1-basic.t,
+which probably needs to be fixed, as its tests are wrong and I don't see any
+other tests testing these routines)
 
 ### Passing Tests
 
