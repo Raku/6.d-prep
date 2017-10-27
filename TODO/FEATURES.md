@@ -348,3 +348,35 @@ Jonathan Worthington
 ### Time Required to Implement
 
 1 day
+
+## Make `.?` safecall actually safe
+
+By performing a `.cando` (or some cheaper alternative) in `dispatch:<.?>`
+
+### Rationale
+
+If I use the "safe call" method I expect a call done if possible, or if not
+a `Nil` to be returned. It's irrelevant to me whether an object `.can`
+a method; I care about whether my call with the given arguments can actually
+be performed.
+
+The current implementation suffers issues even with core `Nil` implementation,
+since it inherits methods from `Cool` and many of them have a `:D` constraint
+on the invocant. This causes usecases such as this:
+
+    "x".?meow.?starts-with: "foo"
+
+To crash because `.starts-with` is called on a `Nil:U` returned by previous
+safe-call. This sort of crashes make safe-call op rather useless.
+
+By making safecall perform a `.cando`-equivalent check to ensure the call
+with the given args can be dispatched will resolve the `Nil:U` issue
+shown above as well as make the safecall a lot more safer.
+
+### Stakeholder
+
+Zoffix Znet
+
+### Time Required to Implement
+
+1 day
