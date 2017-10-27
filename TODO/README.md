@@ -83,6 +83,17 @@ If you spot any questionable tests, bring it up in
     * Avoid committing this stuff to `nom` until decision is reached that tests are indeed wrong
 * Make it clear to all core devs that this protocol must be adhered to
 
+## Define More Concrete Policies For Deprecations/Changes with Large Impact
+
+* What's our deprecation period for features?
+* What's our user notification chain for changes that might impact them?
+    * Define where users can watch for critical notifications
+    * Define how much notice we must give users before we introduce potentially
+       breaking changes, which aren't necessarily have to do with language, but
+       even things like infrastructure changes (e.g. 
+       [how well was the nom to master rename handled?](https://irclog.perlgeek.de/perl6-dev/2017-10-27#i_15360590)
+       should we have given bleed users more notice?)
+
 ## Feature List
 
 Collect all the features that will be new in 6.d. Many are already implemented,
