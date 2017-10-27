@@ -305,19 +305,6 @@ Zoffix
 
 4 hours
 
-## Make it possible to change buffer size on existing IO::Handle
-
-Proposed in https://irclog.perlgeek.de/perl6-dev/2017-09-28#i_15231596
-
-### Stakeholder
-
-???
-
-### Time Required to Implement
-
-???
-
-
 ## Deprecate .flatmap
 
 Make use of `.flatmap` to issue a deprecation warning in 6.d, to be removed in 6.e. The method
