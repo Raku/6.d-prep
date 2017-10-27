@@ -322,24 +322,6 @@ Zoffix
 
 4 hours
 
-## Really implement hyper/race on Iterables
-
-Currently, .hyper and .race don't really work. Change that for 6.d, so people can use them. Add
-tests covering them.
-
-### Rationale
-
-People keep trying to use them and getting disappointed. "They're fine in 6.d" would be rather
-nice to be able to say.
-
-### Stakeholder
-
-Jonathan Worthington
-
-### Time Required to Implement
-
-1-2 weeks
-
 ## Make `start` blocks in sink context attach an error handler
 
 At the moment, any exceptions leaking out will be lost. For this particular case, determined
