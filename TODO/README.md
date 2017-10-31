@@ -144,8 +144,8 @@ As elaborated [here](https://rakudo.party/post/The-Hot-New-Language-Named-Rakudo
 [here](https://www.reddit.com/r/perl6/comments/6lstq3/the_hot_new_language_named_rakudo/), there's
 a push to improve the language name.
 
-The current mood, as I (Zoffix) perceive it, is: there's room for a name extension (e.g. "Foo Perl 6")
-where "Foo" can be a standalone word people who don't wish to use "Perl" can use. However, the
+The current mood, as I (Zoffix) perceive it, is: ~~there's room for a name extension (e.g. "Foo Perl 6")
+where "Foo" can be a standalone word people who don't wish to use "Perl" can use~~ (UPDATE: we're now [aiming for a stand-alone alias](https://rakudo.party/post/6lang-The-Naming-Discussion-Update#the6lang) rather than extension). However, the
 change for an entirely new name is not desired.
 
 To resolve this issue, a month before release date, Zoffix is to:
