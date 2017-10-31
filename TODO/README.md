@@ -145,17 +145,17 @@ As elaborated [here](https://rakudo.party/post/The-Hot-New-Language-Named-Rakudo
 a push to improve the language name.
 
 The current mood, as I (Zoffix) perceive it, is: ~~there's room for a name extension (e.g. "Foo Perl 6")
-where "Foo" can be a standalone word people who don't wish to use "Perl" can use~~ (UPDATE: we're now [aiming for a stand-alone alias](https://rakudo.party/post/6lang-The-Naming-Discussion-Update#the6lang) rather than extension). However, the
-change for an entirely new name is not desired.
+where "Foo" can be a standalone word people who don't wish to use "Perl" can use~~ (UPDATE: we're now [aiming for a stand-alone *alias*](https://rakudo.party/post/6lang-The-Naming-Discussion-Update#the6lang) rather than extension). However, the
+change for an entirely new name and dropping "Perl 6" currently does not have sufficient support.
 
 To resolve this issue, a month before release date, Zoffix is to:
 
 - Collate all the feedback on the matter in presentable, easy to digest manner
-- Collect all of the suggested name extensions offered by various sources
+- Collect all of the suggested name aliases offered by various sources
 - Prepare any marketing plans, if time/skill allows, to show the benefits of adjusting the name
 - Give the things to TimToady and ask for:
-    - Executive decision on whether the name extension can be officially made
-    - If yes, decide what the official name extension is
+    - Executive decision on whether the name alias can be officially made
+    - Decide what the official name alias is going to be
 
 TimToady will have a month to think on the matter and is to give the final decision prior to the 6.d language release.
 
@@ -166,5 +166,5 @@ or, if you don't consider yourself a regular member of the Perl 6 Community, in 
 If you don't have access to reddit, you can DM your feedback [to Zoffix on Twitter](https://twitter.com/zoffix)
 or send a private message to user `Zoffix` on [IRC](https://webchat.freenode.net/?channels=#perl6)
 
-Update: more info on the naming issue: https://6lang.party/post/6lang-The-Naming-Discussion-Update
+UPDATE: more info on the naming issue: https://6lang.party/post/6lang-The-Naming-Discussion-Update
 
