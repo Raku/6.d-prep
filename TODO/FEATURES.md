@@ -380,3 +380,17 @@ Zoffix Znet
 ### Time Required to Implement
 
 1 day
+
+## Make method matcher forms not set `$/`
+
+For rationalle and discussion see: https://github.com/rakudo/rakudo/issues/1235
+
+This change depends on how the discussion in that Issue concludes.
+
+### Stakeholder
+
+Zoffix Znet
+
+### Time Required to Implement
+
+1 day
