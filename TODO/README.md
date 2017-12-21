@@ -21,9 +21,8 @@ other tests testing these routines)
 
 ### Passing Tests
 
-Ensure Roast stresstest passes on Windows. Currently three open Issues
-exists, showing a bunch of failing tests [#320](https://github.com/perl6/roast/issues/320),
-[#232](https://github.com/perl6/roast/issues/232), and [#197](https://github.com/perl6/roast/issues/197)
+Ensure Roast stresstest passes on Windows. Roast Issue
+[#320](https://github.com/perl6/roast/issues/320) showing a bunch of failing tests.
 
 ### Review 
 
