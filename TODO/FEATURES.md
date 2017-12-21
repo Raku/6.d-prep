@@ -225,6 +225,24 @@ Zoffix
 
 10 hours
 
+## Rename `.parse-names` to `.uniparse`
+
+Altough `.parse-names` was never part of `6.c`, there's some use of it
+in ecosystem and likely elsewhere, so it should undergo a deprecation period.
+
+The original name was chosen to align with `.parse-base` that parses out base-X numbers out
+strings. However, we have a whole block of more closely related routines all named in `.uni*`
+format, so it makes sense for this routine's naming to align with those. They are: 
+`infix:<unicmp>`, `unimatch`, `uniname`, `uninames`, `unival`, `univals`,
+`uniprop`, `uniprop-bool`, `uniprop-int`, `uniprop-str`, `uniprops`.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+3 hours
 
 ## Remove $/ magicalness from %() and @()
 
