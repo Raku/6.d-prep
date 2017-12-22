@@ -38,8 +38,14 @@ The goal of the review is to ensure all of the commits added to `master` since
 One way to do that is to go through all the commits and see if any of the
 newly added tests look off. To assist with that, you can create a handy alias:
 
+(shell version)
 ```bash
     alias glop="git log --pretty=format:'%C(yellow)https://github.com/perl6/roast/commit/%H | %Cred%ad | %Cgreen%d %Creset%s' --date=short --reverse"
+```
+
+(html version)
+```bash
+alias glop="git log --pretty=format:'<a href='\''https://github.com/perl6/roast/commit/%H'\'' style='\''font-family: monospace'\'' target=_blank>%H | %ad | %s</a><br><br>' --date=short --reverse"
 ```
 
 Then, in checkout of [the roast repo](https://github.com/perl6/roast/) run
@@ -59,6 +65,14 @@ you come back later to review some more, run:
 ```bash
     cd ~/roast-6.d-review
     glop 4a59ba39a8bec2c746d3ae34cd67fde3bcca25cd...HEAD
+```
+
+With HTML version, save it to a file and view the file in the browser:
+
+```bash
+    cd ~/roast-6.d-review
+    glop 4a59ba39a8bec2c746d3ae34cd67fde3bcca25cd...HEAD > 6.d.html
+    firefox 6.d.html
 ```
 
 If you spot any questionable tests, bring it up in
