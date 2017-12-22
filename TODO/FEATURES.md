@@ -230,7 +230,7 @@ Zoffix
 *UPDATE: `.uniparse` is now implemented: https://github.com/rakudo/rakudo/commit/2a8287cf89 
 https://github.com/perl6/roast/commit/3efe6cb8da https://github.com/perl6/doc/commit/bff42f80b1 ;
 Still need to add a deprecation warning
-in `.parse-names` in 6.d, once machinery allowing that exists.
+in `.parse-names` in 6.d, once machinery allowing that exists.*
 
 -------
 
