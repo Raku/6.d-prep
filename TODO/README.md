@@ -80,7 +80,7 @@ If you spot any questionable tests, bring it up in
 
 #### Reviewers
 
-* Zoffix (reached commit `5fb2feb9f68f8ea208754bb8f68372e9def63b35`)
+* Zoffix (reached commit `f8842792ee68cc43caedd501103f7e8288f46482`)
 
 ## Define More Concrete Spec Errata Rules
 
