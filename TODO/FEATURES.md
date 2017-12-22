@@ -227,6 +227,13 @@ Zoffix
 
 ## Rename `.parse-names` to `.uniparse`
 
+*UPDATE: `.uniparse` is now implemented: https://github.com/rakudo/rakudo/commit/2a8287cf89 
+https://github.com/perl6/roast/commit/3efe6cb8da https://github.com/perl6/doc/commit/bff42f80b1 ;
+Still need to add a deprecation warning
+in `.parse-names` in 6.d, once machinery allowing that exists.
+
+-------
+
 Altough `.parse-names` was never part of `6.c`, there's some use of it
 in ecosystem and likely elsewhere, so it should undergo a deprecation period.
 
