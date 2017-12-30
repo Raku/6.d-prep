@@ -75,6 +75,11 @@ With HTML version, save it to a file and view the file in the browser:
     chromium-browser 6.d.html
 ```
 
+Note that with the above one liners, some times you'd still end up with
+a couple of old commits at the top of the list, even after re-filtering to
+a newer commits. There's probably some `git` reason behind that, but
+I don't know what it is.
+
 If you spot any questionable tests, bring it up in
 [#perl6-dev](https://webchat.freenode.net/?channels=#perl6-dev)
 
