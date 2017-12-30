@@ -72,7 +72,7 @@ With HTML version, save it to a file and view the file in the browser:
 ```bash
     cd ~/roast-6.d-review
     glop 4a59ba39a8bec2c746d3ae34cd67fde3bcca25cd...HEAD > 6.d.html
-    firefox 6.d.html
+    chromium-browser 6.d.html
 ```
 
 If you spot any questionable tests, bring it up in
