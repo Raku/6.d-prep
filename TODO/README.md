@@ -45,7 +45,7 @@ newly added tests look off. To assist with that, you can create a handy alias:
 
 (html version)
 ```bash
-alias glop="git log --pretty=format:'<a href='\''https://github.com/perl6/roast/commit/%H'\'' style='\''font-family: monospace'\'' target=_blank>%H | %ad | %s</a><br><br>' --date=short --reverse"
+alias glop="git log --pretty=format:'<a href='\''https://github.com/perl6/roast/commit/%h'\'' style='\''font-family: monospace'\'' target=_blank>%H | %ad | %s</a><br><br>' --date=short --reverse"
 ```
 
 Then, in checkout of [the roast repo](https://github.com/perl6/roast/) run
@@ -85,7 +85,7 @@ If you spot any questionable tests, bring it up in
 
 #### Reviewers
 
-* Zoffix (reached commit `222aa2d0e145cd83e8e4e4d11f6075b7829edc46`)
+* Zoffix (reached commit `4652164eb987808ff77e4eacd5d5ba7bfdfa6ed9`)
 
 ## Define More Concrete Spec Errata Rules
 
