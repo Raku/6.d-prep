@@ -40,7 +40,7 @@ newly added tests look off. To assist with that, you can create a handy alias:
 
 (shell version)
 ```bash
-    alias glop="git log --pretty=format:'%C(yellow)https://github.com/perl6/roast/commit/%H | %Cred%ad | %Cgreen%d %Creset%s' --date=short --reverse"
+    alias glop="git log --pretty=format:'%C(yellow)https://github.com/perl6/roast/commit/%h | %Cred%ad | %Cgreen%d %Creset%s' --date=short --reverse"
 ```
 
 (html version)
