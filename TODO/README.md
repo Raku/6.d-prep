@@ -105,7 +105,7 @@ If you spot any questionable tests, bring it up in
 
 * What's our deprecation period for features?
 * What's our user notification chain for changes that might impact them?
-    * Define where users can watch for critical notifications
+    * ~~Define where users can watch for critical notifications~~ exists now as alerts.perl6.org
     * Define how much notice we must give users before we introduce potentially
        breaking changes, which aren't necessarily have to do with language, but
        even things like infrastructure changes (e.g. 
