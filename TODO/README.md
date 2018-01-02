@@ -112,6 +112,28 @@ If you spot any questionable tests, bring it up in
        [how well was the nom to master rename handled?](https://irclog.perlgeek.de/perl6-dev/2017-10-27#i_15360590)
        should we have given bleed users more notice?)
 
+## Define More Concrete Policies For Implementation of New Features
+
+We can probably steal the results birthed [by the same discussion in p5p thread](https://www.nntp.perl.org/group/perl.perl5.porters/2017/12/msg248481.html)
+
+I think the problem described in the thread matches our own current process quite a lot:
+
+> The language development [...] a lot of it rather boiled down to
+"Someone with a commit bit had time on their hands, and no one on the list
+who was online that week protested too much
+
+<small>(Zoffix)</small>: My personal two cents to add to that: on more than one occasion
+I saw complete novices to Perl 6 being invited by members of community to submit core PRs
+implementing feature XYZ, the first time it was mentioned. I don't think that's good
+language design and I think it's misleading to give the impression we would accept any
+feature, as long as someone writes the code for it.
+
+For features that can be implemented entirely in userspace, I think a lot of bad and
+unwanted features can be weeded out by requiring the implementation to first exist
+in module space for, say, 3 months, in `CoreLab::` namespace. With proper docs and tests.
+If no one can be bothered to do all that, there's not enough demand for the feature to
+be in core.
+
 ## Feature List
 
 Collect all the features that will be new in 6.d. Many are already implemented,
