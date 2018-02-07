@@ -419,3 +419,20 @@ Zoffix Znet
 ### Time Required to Implement
 
 1 day
+
+## Make default defaults for DefiniteHOWs be normal types
+
+Basically, so you could do `my Foo:D $x .= new;`, which
+currently dies since you can't instantiate DefiniteHOWs.
+
+There's an open Rakudo issue for this that also contains
+a potential non-version impl in a branch:
+https://github.com/rakudo/rakudo/issues/1493
+
+### Stakeholder
+
+Zoffix Znet
+
+### Time Required to Implement
+
+2 hr
