@@ -101,3 +101,30 @@ It was never specced and currently exists for backwards compatibility with older
 removed.
 
 Removed in https://github.com/rakudo/rakudo/commit/9cb4b167f5
+
+## Formal Rules for Defining Matched Delimiters/Brackets
+
+It was decided that due to Ornate Parenthesis being unused and the test in actuality being *wrong* (and it was an accident it was codified that way) we would
+be able to implement this before v6.d.
+
+### Status
+
+Resolved
+
+#### Fri Oct 6 2017
+
+[NQP 02a426e0e](https://github.com/perl6/nqp/commit/02a426e0e)
+* Fri Oct 6 2017, Support for using ornate parenthesis for quoting constructs is removed
+
+[NQP 576d78eef](https://github.com/perl6/nqp/commit/576d78eef)
+* A warning message is added, notifying the user:
+```
+Ornate parentheses U+FD3E '﴾' + U+FD3F '﴿', have been removed
+Please use another type of bracket.
+See https://github.com/perl6/nqp/commit/02a426e0e for removal reasons.
+```
+
+### Thu Jan 4 2018
+
+[NQP 277cfcb2d](https://github.com/perl6/nqp/commit/277cfcb2d)
+* The warning message was removed as planned.
