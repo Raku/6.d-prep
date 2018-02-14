@@ -412,6 +412,13 @@ For rationalle and discussion see: https://github.com/rakudo/rakudo/issues/1235
 
 This change depends on how the discussion in that Issue concludes.
 
+As part of this work, we'd need to figure out how `$/` is set for
+`s///`/`S///` ops, since currently they use method forms under the hood.
+One of the bugs pointed out with method forms was `.subst` with `:g` not
+setting `$/` to an empty `List` when no matches occured. This would need
+to be fixed for the `S///` operator. (Original issue
+[R#1523](https://github.com/rakudo/rakudo/issues/1523#issuecomment-365447388))
+
 ### Stakeholder
 
 Zoffix Znet
