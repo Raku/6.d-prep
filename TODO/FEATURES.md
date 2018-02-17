@@ -31,7 +31,7 @@ error as when, for example, you use `unit`... *"Too late to blah blah..."*
 
 # PROPOSED FEATURES
 
-## Sigils imply :D
+## `@`, `%`, (and possibly `&`) Sigils Only Accept DEFINITE Objects
 
 In a declaration, the `@` sigil for example implies a type constraint to
 `Positional`. I want the sigil to imply the type constraint `Positional:D`
