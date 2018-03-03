@@ -427,6 +427,26 @@ Zoffix Znet
 
 1 day
 
+## Deprecate Cool.path
+
+We already have `Cool.IO`. Also, `IO::Path.path` exists and `IO::Path`
+is `Cool`, yet that `.path` returns a `Str` object, not `IO::Path`.
+
+Issue deprecation warning in 6.d and remove when 6.e comes out.
+
+This isn't actually part of 6.c language, but when I
+[removed it](https://github.com/rakudo/rakudo/commit/b212fc5e20), `zef` crashed.
+
+May as well go through full deprecation cycle and keep it around, just in case.
+
+### Stakeholder
+
+Zoffix Znet
+
+### Time Required to Implement
+
+1 hour
+
 ## Make default defaults for DefiniteHOWs be normal types
 
 Basically, so you could do `my Foo:D $x .= new;`, which
