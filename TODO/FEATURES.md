@@ -495,3 +495,27 @@ Samantha McVey (samcv)
 ### Time Required to Implement
 
 ???
+
+
+## Remove Pair.freeze
+
+*(Added by Zoffix, based on commit
+[c229022cb0](https://github.com/rakudo/rakudo/commit/c229022cb09413e48b7e3d8343a823463f48cb71)'s
+message)*
+
+My (Zoffix) :+1: for its removal is because it doesn't actually "freeze" much: 
+
+```perl6
+   with foo => [<a b c>] { .freeze; .value = 100; .say } # OUTPUT: foo => [100]
+```
+
+So it's a method that overpromises on what it does and merely deconts the value—something
+that likely should've been done during the Pair's creation.
+
+### Stakeholder
+
+lizmat
+
+### Time Required to Implement
+
+???
