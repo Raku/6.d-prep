@@ -519,3 +519,33 @@ lizmat
 ### Time Required to Implement
 
 ???
+
+## Remove Str.subst-mutate
+
+This routine is misdesigned and unneeded:
+
+1. This method does not fit the language. We don't offer `-mutate` versions of any
+    other routines and there's a really good reason: the `.=` methodop and infixop
+    provide that feature for all the methods automatically.
+2. The current implementation is broken in that it doesn't set `$/` if `Str` matcher
+    was given, yet it returns `Match` objects in all cases.
+3. Worst of all this routine has poor performance, detailed in 
+   [R#1668](https://github.com/rakudo/rakudo/issues/1668). The current unoptimized version
+   is 44x slower than `.=subst` variant, yet even after `Str, Str` candidate was added,
+   the performance was still 3x slower, due to the need of fetching caller's `$/` in one
+   extra level. I'm speculating it'll never match the speed of `.=subst` because `.=subst`
+   can do the assignment with a local-scoped variable, while `.subst-mutate` requires a mutable
+   container actually gets passed to it.
+
+In summation, it's an outlier as far as language's design is concerned, it still has bugs even
+after we fixed a ton of bugs with it already, and it has dismal performance resulting in
+us having to actively discourage its use. I call we deprecate it in 6.d and remove entirely in 6.e.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+5 hours
+
