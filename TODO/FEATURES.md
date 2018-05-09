@@ -183,6 +183,11 @@ not declared by IEEE.
     }
 ```
 
+Similar treatment is needed for `Complex` numerics which currently partially follow IEEE:
+don't explode, but always produce a `NaN` instead of producing `+/-Inf` in cases where
+it's meant to be produced.
+
+
 ### Stakeholder
 
 Zoffix
