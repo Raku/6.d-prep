@@ -493,7 +493,7 @@ lizmat
 
 ???
 
-## Remove Str.subst-mutate
+## Deprecate Str.subst-mutate
 
 This routine is misdesigned and unneeded:
 
