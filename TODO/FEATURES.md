@@ -522,3 +522,19 @@ Zoffix
 
 5 hours
 
+## Deprecate Rational.norm
+
+There's absolutely no need for this method to exist as (after
+[CaR Grant](http://news.perlfoundation.org/2018/04/grant-proposal-perl-6-bugfixin.html)) all core Rationals
+are always normalized upon creation.
+
+It's actually required to perform normalization on creation to be able to maintain
+Rationals as immutable, while still having valid object identity tests (e.g. `<4/2> === <2/1> # => True`)
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+5 hours
