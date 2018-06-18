@@ -128,3 +128,55 @@ See https://github.com/perl6/nqp/commit/02a426e0e for removal reasons.
 
 [NQP 277cfcb2d](https://github.com/perl6/nqp/commit/277cfcb2d)
 * The warning message was removed as planned.
+
+
+## Formal Rules for Defining Matched Delimiters/Brackets
+
+In v6.d we should formalize which brackets we support.
+How do we decide which delimiters should be added on future updates
+to the Unicode standard? We should look to the Unicode standard to help
+us define matching delimiters and brackets for Perl 6.
+
+All delimiters we support should conform to two simple rules for the sake of
+uniformity, elegance and clairity.
+
+### Rules
+
+1. Delimiter's Unicode General_Category must match one of these:
+
+    Pi -> Pf ( Punctuation, initial quote -> Punctuation, final quote)
+    Ps -> Pe (Punctuation, start -> Punctuation, end)
+
+2. The delimiters must be matching BidiBrackets and/or BidiMirroring characters.
+
+Bidirectional brackets are specified
+[here](http://www.unicode.org/Public/UCD/latest/ucd/BidiBrackets.txt)
+
+Non brackets have their matching glyph specified in this
+[file](http://www.unicode.org/Public/UCD/latest/ucd/BidiMirroring.txt)
+
+### Possible issues
+
+The only possible issue, is what to do with ornate parens.
+
+**BidiBrackets.txt** states:
+
+“For legacy reasons, the characters U+FD3E ORNATE LEFT PARENTHESIS and
+U+FD3F ORNATE RIGHT PARENTHESIS do not mirror in bidirectional display
+and therefore **do not form a bracket pair.**”
+
+In v6.c, roast includes tests for 'ornate left parens' and 'ornate right parens'
+for doing things like `q[ ]` type contructs and such. I think that we should not
+allow these parenthesis because firstly, Unicode states they do not form a matching pair
+of brackets. Secondly, the ornate parenthesis also do not have mirror glyphs.
+To make matters even worse, their Unicode general categories are the opposite of every
+matched bracket we support, the opening brackets tested for in v6.c open with
+"Pe"(End) and close with is "Ps"(Start).
+They break both of these proposed rules.
+
+In practice this is already implement with the exception of the ornate parenthesis,
+but I propose this be made an official part of the Perl 6 standard.
+
+### Stakeholder
+
+Samantha McVey (samcv)

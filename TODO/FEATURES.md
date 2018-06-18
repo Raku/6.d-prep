@@ -71,62 +71,6 @@ Moritz Lenz
 
 ???
 
-## Formal Rules for Defining Matched Delimiters/Brackets
-
-In v6.d we should formalize which brackets we support.
-How do we decide which delimiters should be added on future updates
-to the Unicode standard? We should look to the Unicode standard to help
-us define matching delimiters and brackets for Perl 6.
-
-All delimiters we support should conform to two simple rules for the sake of
-uniformity, elegance and clairity.
-
-### Rules
-
-1. Delimiter's Unicode General_Category must match one of these:
-
-    Pi -> Pf ( Punctuation, initial quote -> Punctuation, final quote)
-    Ps -> Pe (Punctuation, start -> Punctuation, end)
-
-2. The delimiters must be matching BidiBrackets and/or BidiMirroring characters.
-
-Bidirectional brackets are specified
-[here](http://www.unicode.org/Public/UCD/latest/ucd/BidiBrackets.txt)
-
-Non brackets have their matching glyph specified in this
-[file](http://www.unicode.org/Public/UCD/latest/ucd/BidiMirroring.txt)
-
-### Possible issues
-
-The only possible issue, is what to do with ornate parens.
-
-**BidiBrackets.txt** states:
-
-“For legacy reasons, the characters U+FD3E ORNATE LEFT PARENTHESIS and
-U+FD3F ORNATE RIGHT PARENTHESIS do not mirror in bidirectional display
-and therefore **do not form a bracket pair.**”
-
-In v6.c, roast includes tests for 'ornate left parens' and 'ornate right parens'
-for doing things like `q[ ]` type contructs and such. I think that we should not
-allow these parenthesis because firstly, Unicode states they do not form a matching pair
-of brackets. Secondly, the ornate parenthesis also do not have mirror glyphs.
-To make matters even worse, their Unicode general categories are the opposite of every
-matched bracket we support, the opening brackets tested for in v6.c open with
-"Pe"(End) and close with is "Ps"(Start).
-They break both of these proposed rules.
-
-In practice this is already implement with the exception of the ornate parenthesis,
-but I propose this be made an official part of the Perl 6 standard.
-
-### Stakeholder
-
-Samantha McVey (samcv)
-
-### Time Required to Implement
-
-**Completed.**
-
-
 ## Properly reserve all `:sym<>` colonpairs on subroutines
 
 This is mostly a reminder so we don't forget. As
@@ -232,7 +176,7 @@ Zoffix
 
 ## Rename `.parse-names` to `.uniparse`
 
-*UPDATE: `.uniparse` is now implemented: https://github.com/rakudo/rakudo/commit/2a8287cf89 
+*UPDATE: `.uniparse` is now implemented: https://github.com/rakudo/rakudo/commit/2a8287cf89
 https://github.com/perl6/roast/commit/3efe6cb8da https://github.com/perl6/doc/commit/bff42f80b1 ;
 Still need to add a deprecation warning
 in `.parse-names` in 6.d, once machinery allowing that exists.*
@@ -244,7 +188,7 @@ in ecosystem and likely elsewhere, so it should undergo a deprecation period.
 
 The original name was chosen to align with `.parse-base` that parses out base-X numbers out
 strings. However, we have a whole block of more closely related routines all named in `.uni*`
-format, so it makes sense for this routine's naming to align with those. They are: 
+format, so it makes sense for this routine's naming to align with those. They are:
 `infix:<unicmp>`, `unimatch`, `uniname`, `uninames`, `unival`, `univals`,
 `uniprop`, `uniprop-bool`, `uniprop-int`, `uniprop-str`, `uniprops`.
 
@@ -476,7 +420,7 @@ Samantha McVey (samcv)
 [c229022cb0](https://github.com/rakudo/rakudo/commit/c229022cb09413e48b7e3d8343a823463f48cb71)'s
 message)*
 
-My (Zoffix) :+1: for its removal is because it doesn't actually "freeze" much: 
+My (Zoffix) :+1: for its removal is because it doesn't actually "freeze" much:
 
 ```perl6
    with foo => [<a b c>] { .freeze; .value = 100; .say } # OUTPUT: foo => [100]
@@ -502,7 +446,7 @@ This routine is misdesigned and unneeded:
     provide that feature for all the methods automatically.
 2. The current implementation is broken in that it doesn't set `$/` if `Str` matcher
     was given, yet it returns `Match` objects in all cases.
-3. Worst of all this routine has poor performance, detailed in 
+3. Worst of all this routine has poor performance, detailed in
    [R#1668](https://github.com/rakudo/rakudo/issues/1668). The current unoptimized version
    is 44x slower than `.=subst` variant, yet even after `Str, Str` candidate was added,
    the performance was still 3x slower, due to the need of fetching caller's `$/` in one
