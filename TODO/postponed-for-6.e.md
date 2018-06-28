@@ -4,6 +4,12 @@ for various reasons.
 
 ## Implement secure way of opening a path
 
+i.e. having a guarantee that `$fh` is open to a file in `/foo/bar/file-I-asked/`
+and not `/foo/bar/../../your-secrets.txt`. This idea originally started as
+simply a way of ensuring the opened file is guaranteed to be within a certain
+directory, but should explore all the security concerns with opening
+paths that are [partially] generated from user's input.
+
 ----
 
 There was a proposal for `.child-secure`, but it's likely not secure enough.
