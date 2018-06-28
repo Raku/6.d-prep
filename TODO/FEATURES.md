@@ -5,6 +5,31 @@ Please list yourself as stakeholder so we'd know whom to contact if we need
 clarification. If possible, find a volunteer willing to implement your
 proposal (it could be you).
 
+# TABLE OF CONTENTS
+- [IN NEED OF IMPLEMENTATION](#in-need-of-implementation)
+    - [Need a way to know caller&#39;s language](#need-a-way-to-know-callers-language)
+    - [`use v6.d.PREVIEW` in wrong place needs to throw](#use-v6dpreview-in-wrong-place-needs-to-throw)
+- [PROPOSED FEATURES](#proposed-features)
+    - [`@`, `%`, (and possibly `&amp;`) Sigils Only Accept DEFINITE Objects](#--and-possibly--sigils-only-accept-definite-objects)
+    - [Properly reserve all `:sym&lt;&gt;` colonpairs on subroutines](#properly-reserve-all-sym-colonpairs-on-subroutines)
+    - [Use IEEE 754-2008 semantics for num/Num infix:&lt;/&gt;, infix:&lt;%&gt;, and infix:&lt;%%&gt;](#use-ieee-754-2008-semantics-for-numnum-infix-infix-and-infix)
+    - [Make all redeclarations fatal](#make-all-redeclarations-fatal)
+    - [Rename `.parse-names` to `.uniparse`](#rename-parse-names-to-uniparse)
+    - [Remove $/ magicalness from %() and @()](#remove--magicalness-from--and-)
+    - [Make `$*ARGFILES` := `$*IN` or `IO::ArgFiles.new($*IN)` inside MAIN](#make-argfiles--in-or-ioargfilesnewin-inside-main)
+    - [De-magicalize &#39;-&#39; in IO::Handle.open](#de-magicalize---in-iohandleopen)
+    - [Spec IO::Handle&#39;s `.write-internal`, `.read-internal`, `.eof-internal`](#spec-iohandles-write-internal-read-internal-eof-internal)
+    - [Deprecate .flatmap](#deprecate-flatmap)
+    - [Make `start` blocks in sink context attach an error handler](#make-start-blocks-in-sink-context-attach-an-error-handler)
+    - [Make method matcher forms not set `$/`](#make-method-matcher-forms-not-set-)
+    - [Deprecate Cool.path](#deprecate-coolpath)
+    - [Make default defaults for DefiniteHOWs be normal types](#make-default-defaults-for-definitehows-be-normal-types)
+    - [Decoding/Encoding windows-1252, windows-1251 and Latin1 throw on invalid input/output](#decodingencoding-windows-1252-windows-1251-and-latin1-throw-on-invalid-inputoutput)
+    - [Remove Pair.freeze](#remove-pairfreeze)
+    - [Deprecate Str.subst-mutate](#deprecate-strsubst-mutate)
+    - [Deprecate Rational.norm](#deprecate-rationalnorm)
+
+
 # IN NEED OF IMPLEMENTATION
 
 ## Need a way to know caller's language
