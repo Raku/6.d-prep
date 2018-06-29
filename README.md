@@ -1,7 +1,7 @@
 
 # 6.d-prep
 
-All The Things to prepare for 6.d "Diwali" language release
+All The Things™ still left to do to prepare for 6.d "Diwali" language release
 
 -------------------------------------------------------------------
 
@@ -16,6 +16,8 @@ for 6.d language release, which would largely be the items in
 [`TODO/completed-FEATURES.md`](TODO/completed-FEATURES.md) documents.
 
 The information in this repo should not be seen as guaranteed
-and fully qualified language changes for 6.d language.
+and fully qualified language changes for 6.d language. It does NOT even contain
+all the changes yet, as many of them were OK to be implemented without requiring
+use of 6.d pragma.
 
 ------------------------------------------------------------------
