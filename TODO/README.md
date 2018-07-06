@@ -24,7 +24,7 @@ other tests testing these routines)
 Ensure Roast stresstest passes on Windows. Roast Issue
 [#320](https://github.com/perl6/roast/issues/320) showing a bunch of failing tests.
 
-### Review 
+### Review
 
 Review [all the new tests since
 6.c](https://github.com/perl6/roast/compare/6.c-errata...HEAD) to ensure they
@@ -108,7 +108,7 @@ If you spot any questionable tests, bring it up in
     * ~~Define where users can watch for critical notifications~~ exists now as alerts.perl6.org
     * Define how much notice we must give users before we introduce potentially
        breaking changes, which aren't necessarily have to do with language, but
-       even things like infrastructure changes (e.g. 
+       even things like infrastructure changes (e.g.
        [how well was the nom to master rename handled?](https://irclog.perlgeek.de/perl6-dev/2017-10-27#i_15360590)
        should we have given bleed users more notice?)
 
@@ -139,6 +139,13 @@ be in core.
 Collect all the features that will be new in 6.d. Many are already implemented,
 documented, and are in use, but they're not part of 6.c language
 (e.g. `Str.parse-base`)
+
+Note, some routines are meant to be deprecated in 6.d but
+[we lack the means to emit a deprecation
+warning](https://github.com/rakudo/rakudo/issues/1289) based on language version.
+These routines should be logged in release docs as deprecated even though they
+might stick around for awhile and start to warn only in 6.e. These are listed
+as planned for deprecation in [`deferred-to-6.e`](deferred-to-6.e/) files.
 
 ## Experimental Features
 
@@ -190,4 +197,3 @@ If you don't have access to reddit, you can DM your feedback [to Zoffix on Twitt
 or send a private message to user `Zoffix` on [IRC](https://webchat.freenode.net/?channels=#perl6)
 
 UPDATE: more info on the naming issue: https://6lang.party/post/6lang-The-Naming-Discussion-Update
-
