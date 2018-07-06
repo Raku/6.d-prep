@@ -309,7 +309,6 @@ Zoffix
 
 -----------------------------------------------------------------
 
-
 ## Deprecate Rational.norm
 
 There's absolutely no need for this method to exist as (after
@@ -326,3 +325,36 @@ Zoffix
 ### Time Required to Implement
 
 5 hours
+
+-----------------------------------------------------------------
+
+## Decoding/Encoding windows-1252, windows-1251 and Latin1 throw on invalid input/output
+
+Currently, these three encodings will decode and encode invalid input. This
+allows us to create files in these encodings that cannot be opened by
+practically any other programming language.
+
+Proposal will make these encodings throw on invalid input/output by default,
+although you will be able to optionally be "permissive" and allow invalid
+decoding/encoding as long as it is technically feasible. (i.e. even though
+codepoint 129 doesn't exist in windows-1252, it *does* fit in one byte, so can
+be encoded, despite it being invalid windows-1252).
+
+### Rationale
+
+Python, Perl 5, iconv will all not decode files with unmapped codepoints.
+This is a horrible default and goes against the way our other encoders/decoders
+work. Given that this is a big change and implementing it before 6.d would
+cause previously working script to all of a sudden break. They may have been
+utilizing this "permissive" decoding/encoding either intentionally or
+unintentionally.
+
+This will be added in 6.d and it will be optional in 6.c
+
+### Stakeholder
+
+Samantha McVey (samcv)
+
+### Time Required to Implement
+
+???
