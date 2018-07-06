@@ -44,7 +44,8 @@ them, please consult with documentation https://docs.perl6.org/
 
 #### New Variables
 
-- `$*USAGE`
+- `$*USAGE`: available inside `MAIN` subs and contains the auto-generated
+  USAGE message
 
 #### Miscellaneous
 
