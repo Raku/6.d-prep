@@ -35,6 +35,10 @@ do belong in 6.d and test desired behaviour.
 The goal of the review is to ensure all of the commits added to `master` since
 `6.c` specify behaviour we actually want to include in `6.d` language release.
 
+If you need to make some changes in the code you're reviewing, put 
+`[v6.d REVIEW] ` into the commit title. This way we'll be able to filter these
+out and tell how many "actual" new commits are in the 6.d language spec.
+
 One way to do that is to go through all the commits and see if any of the
 newly added tests look off. To assist with that, you can create a handy alias:
 
