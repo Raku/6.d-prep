@@ -47,10 +47,10 @@ before committing considerable amounts of time to your addition.
 * The feature conflicts with earlier language versions and must be added to the next language version: 100000pt
 * The addition contains a new class (available to users WITHOUT having to load some module): 1000pt.
 * The addition contains a new method (even if it's inside the new class being added): 100pt.
-    * Add another 50pt if the class is `Cool`
-    * Add another 100pt if the class is `Any`. This likely affects all `List` methods, due to
+    * Add another 50pt if the class is `Cool` (THE `Cool`, not a subclass)
+    * Add another 100pt if the class is `Any` (THE `Any`, not a subclass). This likely affects all `List` methods, due to
       everything-is-a-1-item-list semantics.
-    * Add another 1000pt if the class is `Mu`
+    * Add another 1000pt if the class is `Mu` (THE `Mu`, not a subclass)
 * The addition contains a new argument (even if it's taken by the new method): 10pt.
 * The addition involves a new candidate to handle a new type of values for the argument (even if it's a new method that handles a single value type in a single argument). Extra candidates added for performances reasons do not count: 5pt.
 * The addition involves widening accepted range of arguments (e.g. a parameter that took only `Int`s is being changed to take all `Numeric`s): 1pt.
