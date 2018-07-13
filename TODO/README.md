@@ -35,7 +35,7 @@ do belong in 6.d and test desired behaviour.
 The goal of the review is to ensure all of the commits added to `master` since
 `6.c` specify behaviour we actually want to include in `6.d` language release.
 
-If you need to make some changes in the code you're reviewing, put 
+If you need to make some changes in the code you're reviewing, put
 `[v6.d REVIEW] ` into the commit title. This way we'll be able to filter these
 out and tell how many "actual" new commits are in the 6.d language spec.
 
@@ -117,12 +117,6 @@ If you spot any questionable tests, bring it up in
        should we have given bleed users more notice?)
 
 ## Define More Concrete Policies For Implementation of New Features
-
-I think the problem described in the thread matches our own current process quite a lot:
-
-> The language development [...] a lot of it rather boiled down to
-"Someone with a commit bit had time on their hands, and no one on the list
-who was online that week protested too much
 
 <small>(Zoffix)</small>: My personal two cents to add to that: on more than one occasion
 I saw complete novices to Perl 6 being invited by members of community to submit core PRs
