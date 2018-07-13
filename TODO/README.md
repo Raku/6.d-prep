@@ -118,17 +118,7 @@ If you spot any questionable tests, bring it up in
 
 ## Define More Concrete Policies For Implementation of New Features
 
-<small>(Zoffix)</small>: My personal two cents to add to that: on more than one occasion
-I saw complete novices to Perl 6 being invited by members of community to submit core PRs
-implementing feature XYZ, the first time it was mentioned. I don't think that's good
-language design and I think it's misleading to give the impression we would accept any
-feature, as long as someone writes the code for it.
-
-For features that can be implemented entirely in userspace, I think a lot of bad and
-unwanted features can be weeded out by requiring the implementation to first exist
-in module space for, say, 3 months, in `CoreLab::` namespace. With proper docs and tests.
-If no one can be bothered to do all that, there's not enough demand for the feature to
-be in core.
+Work in progress available in [`d-docs/New-Features-Policy.md`](d-docs/New-Features-Policy.md)
 
 ## Feature List
 
