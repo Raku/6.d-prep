@@ -118,8 +118,6 @@ If you spot any questionable tests, bring it up in
 
 ## Define More Concrete Policies For Implementation of New Features
 
-We can probably steal the results birthed [by the same discussion in p5p thread](https://www.nntp.perl.org/group/perl.perl5.porters/2017/12/msg248481.html)
-
 I think the problem described in the thread matches our own current process quite a lot:
 
 > The language development [...] a lot of it rather boiled down to
