@@ -19,6 +19,12 @@ Remove all the files that are currently skipped. (e.g. S24-testing/1-basic.t,
 which probably needs to be fixed, as its tests are wrong and I don't see any
 other tests testing these routines)
 
+### Add Missing `plan`s in substests
+
+[Some subtests](https://github.com/perl6/roast/commit/991398bb7) are missing 
+a `plan` call inside of them. Some programatic method should be developed
+to detect this issue and fix it.
+
 ### Passing Tests
 
 Ensure Roast stresstest passes on Windows. Roast Issue
