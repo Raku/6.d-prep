@@ -237,3 +237,22 @@ Zoffix Znet
 ### Time Required to Implement
 
 3 hr
+
+----------------------------------------------------------------------
+
+## Sort out meaning of `.bool-only`/`.count-only` after receiving IterationEnd
+
+See https://github.com/rakudo/rakudo/issues/2075
+
+After Issue has a resolution, this roast work in `range-iterator-improvements`
+branch needs to be amended and merged to master: https://github.com/perl6/roast/commit/ab6ade455b
+
+### Stakeholder
+
+Zoffix Znet
+
+### Time Required to Implement
+
+7 hr
+
+
