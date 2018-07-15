@@ -93,6 +93,12 @@ Zoffix
 ## Remove $/ magicalness from %() and @()
 
 And perhaps $() too; Per https://rt.perl.org/Ticket/Display.html?id=131392
+and https://github.com/rakudo/rakudo/issues/1946
+
+If deferring until later language versions, fix up
+https://github.com/perl6/roast/commit/57e5a7d463 and
+https://github.com/perl6/roast/commit/7b568420dc
+
 
 ### Stakeholder
 
