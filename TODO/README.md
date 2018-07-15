@@ -95,7 +95,7 @@ If you spot any questionable tests, bring it up in
 
 #### Reviewers
 
-* Zoffix (reached commit `c010174ac7027b2b6bb2b541f01158cb1a6a0b9d`)
+* Zoffix (reached commit `1a00e5e88c4e7668a811de6cfc8b6f659bdf34b4`)
 
 ## Define More Concrete Spec Errata Rules
 
