@@ -163,6 +163,26 @@ least two core developers request this step to be performed.
 * If the impact score of the addition is between 120pt ..^ 300pt, this step is optional, unless at
 least one core developer request this step to be performed.
 
+#### Notes on Feasibility
+
+The requirement of unsupported features for the trial implementation, such as the use of NQP, is *not*
+a reason why a the implementation should not be created. If such features are required, the module's
+documentation should be clear that it's an experiment for core inclusion and the easiest way to
+make that fact clear is to place the module into `CoreLab::` namespace.
+
+However, there will be cases where a separate implementation is not feasible or even possible. In
+such cases, the feature must require the use of `experimental` pragma to be enabled by the user.
+The experimental status must last for at least 3 months.
+
+For a major version language release, features that have been experimental for 3 months must be
+either: (a) accepted and their experimental status removed; (b) rejected and the feature removed
+entirely; (c) sufficiently modified to warrant a new experimental period; (d) kept as is, but 
+a detailed explanation must be written explaining why the experiment must go on unchanged. The goal
+here is to avoid having experimental features being too "stable" (e.g. a few users use it and then
+leave their modules to rot, in several years a bunch of others rely on those modules, and now you
+have a ton of software relying on an exprimental feature). Provision (d) allows for extended experiments
+for cases where lack of volunteers' time prevents sufficient evaluation or modification of the feature.
+
 ### 5) REVIEW BY CORE DEVELOPERS
 
 A "core developer" is a person who has a commit bit to a largely-compliant, "usable" implementation
