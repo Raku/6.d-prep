@@ -29,6 +29,11 @@ changes; please consult with the changelog for your implementation.
 These are new features that did not exist in 6.c language. For details about
 them, please consult with documentation https://docs.perl6.org/
 
+Items marked with `[6.d]` are protected by version pragma and older behaviours
+can be obtained by explicitly using `use v6.c` to request an older language version.
+All other changes do not conflict with the 6.c language version and implementations
+may choose to make them available even when an earlier language version is requested.
+
 #### New Methods
 
 - `Str.uniparse`: parse one or more Unicode character names into
@@ -50,6 +55,10 @@ them, please consult with documentation https://docs.perl6.org/
 #### Miscellaneous
 
 - The `IO::ArgFiles` type is now just an empty subclass of `IO::CatHandle`
+- Constraints on constants
+    - Constraints are now fully enforced
+    - Attempting to parametarized type constraints on constants
+        (i.e. using `my Foo constant @int`) now throws `X::ParametricConstant` exception
 
 ## Deprecations
 
