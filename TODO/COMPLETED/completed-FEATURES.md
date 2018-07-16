@@ -4,6 +4,29 @@ See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 
 # Implemented
 
+
+## Spec IO::Handle's `.write-internal`, `.read-internal`, `.eof-internal`
+
+The method names should be changed as currently they imply Rakudo-internal methods
+rather than methods users should be overriding to affect all read/write methods.
+
+They should probably use different casing to differentiate them from regular IO::Handle
+methods consumers of IO::Handle would use. Perhaps, `.WRITE`, `.READ`,
+and `.EOF`, but would it be confusing with the lower-case methods of the same name?
+
+Spec and document the methods as the proper way to create custom IO::Handle
+subclasses.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+4 hours
+
+-----------------------------------------------------------------
+
 ## Non-blocking await and react
 
 In v6.c, using `await` currently blocks a real thread. In v6.d it will, provided the `await`

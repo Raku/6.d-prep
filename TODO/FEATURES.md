@@ -132,28 +132,6 @@ Zoffix
 
 -----------------------------------------------------------------
 
-## Spec IO::Handle's `.write-internal`, `.read-internal`, `.eof-internal`
-
-The method names should be changed as currently they imply Rakudo-internal methods
-rather than methods users should be overriding to affect all read/write methods.
-
-They should probably use different casing to differentiate them from regular IO::Handle
-methods consumers of IO::Handle would use. Perhaps, `.WRITE`, `.READ`,
-and `.EOF`, but would it be confusing with the lower-case methods of the same name?
-
-Spec and document the methods as the proper way to create custom IO::Handle
-subclasses.
-
-### Stakeholder
-
-Zoffix
-
-### Time Required to Implement
-
-4 hours
-
------------------------------------------------------------------
-
 ## Make `start` blocks in sink context attach an error handler
 
 At the moment, any exceptions leaking out will be lost. For this particular case, determined
@@ -260,5 +238,3 @@ Zoffix Znet
 ### Time Required to Implement
 
 7 hr
-
-
