@@ -171,8 +171,8 @@ documentation should be clear that it's an experiment for core inclusion and the
 make that fact clear is to place the module into `CoreLab::` namespace.
 
 However, there will be cases where a separate implementation is not feasible or even possible. In
-such cases, the feature must require the use of `experimental` pragma to be enabled by the user.
-The experimental status must last for at least 3 months.
+such cases, the feature can be placed into core, but it must require the use of `experimental` pragma
+to be enabled by the user. The experimental status must last for at least 3 months.
 
 For a major version language release, features that have been experimental for 3 months must be
 either: (a) accepted and their experimental status removed; (b) rejected and the feature removed
