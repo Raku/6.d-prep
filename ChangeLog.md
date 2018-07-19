@@ -84,3 +84,8 @@ methods for a longer period than 6.e release.
   for at least one language implementation to have that feature implemented
   as a proof-of-viability, before they're accepted to be a part of a released
   language specification.
+
+## MISC
+
+- On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is now reserved,
+  in anticipation of possible future use.
