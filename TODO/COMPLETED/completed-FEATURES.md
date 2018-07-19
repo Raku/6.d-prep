@@ -5,6 +5,31 @@ See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 # Implemented
 
 
+
+## Properly reserve all `:sym<>` colonpairs on subroutines
+
+This is mostly a reminder so we don't forget. As
+[previously discussed](https://irclog.perlgeek.de/perl6/2017-01-25#i_13988093),
+We want to make `:sym<>` colonpairs on subroutines reserved. However,
+there is [a 6.c-errata test](https://github.com/perl6/roast/blob/dfe905a8ce84d09b5b0536fcc151e798488a9289/S32-exceptions/misc.t#L132)
+that expects `sub foo:sym<bar> {}` `X::Syntax::Extension::Category`
+exception instead of `X::Syntax::Reserved` we desire. The
+[code implementing this](https://github.com/rakudo/rakudo/commit/48abeeef26)
+already exists. It just needs to be uncommented for 6.d and
+[corresponding tests](https://github.com/perl6/roast/commit/53d6e8491d)
+unfudged.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+4 hours
+
+-----------------------------------------------------------------
+
+
 ## Spec IO::Handle's `.write-internal`, `.read-internal`, `.eof-internal`
 
 The method names should be changed as currently they imply Rakudo-internal methods
