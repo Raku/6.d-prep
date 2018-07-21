@@ -17,6 +17,21 @@ error as when, for example, you use `unit`... *"Too late to blah blah..."*
 
 # PROPOSED FEATURES
 
+## Change default for `num` to be `0e0`
+
+Per discussion in https://github.com/perl6/6.d-prep/issues/4
+
+There's a also a ton of propspec in S02-types/num.t for various ops expecting
+default to be a `NaN` that will need to be changed as well.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+10 hours
+
 ## Use IEEE 754-2008 semantics for num/Num infix:</>, infix:<%>, and infix:<%%>
 
 **(Sidenote: be sure to check log(42, 1) does not explode when this is implemented.
