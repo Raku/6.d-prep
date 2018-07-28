@@ -6,6 +6,34 @@ unable to change behaviour of methods based on caller's language. A lot more tho
 be given to that Issue and it was decided it's best to release 6.d language with the features
 we can implement right now, rather than have that Issue hold everything up.
 
+# POLICIES
+
+## Define More Concrete Spec Errata Rules
+
+* Define specific protocol for how past specs can be changed
+* What is a "test that's wrong"?
+    * How is that wrongness measured?
+    * Who and how many people decide that it's wrong?
+    * Which code is considered the test itself and which code is merely
+        supporting code that isn't explicitly being tested by the test?
+* How do we make users aware of spec errata changes?
+* What does the core dev do with code they wrote that turned out to break possibly-wrong tests?
+    * Specify specific branch where such commits should be kept in
+    * Avoid committing this stuff to `nom` until decision is reached that tests are indeed wrong
+* Make it clear to all core devs that this protocol must be adhered to
+
+## Define More Concrete Policies For Deprecations/Changes with Large Impact
+
+* What's our deprecation period for features?
+* What's our user notification chain for changes that might impact them?
+    * ~~Define where users can watch for critical notifications~~ exists now as alerts.perl6.org
+    * Define how much notice we must give users before we introduce potentially
+       breaking changes, which aren't necessarily have to do with language, but
+       even things like infrastructure changes (e.g.
+       [how well was the nom to master rename handled?](https://irclog.perlgeek.de/perl6-dev/2017-10-27#i_15360590)
+       should we have given bleed users more notice?)
+
+
 # FEATURES
 
 ## Implement secure way of opening a path
