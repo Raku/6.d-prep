@@ -5,6 +5,26 @@ See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 # Implemented
 
 
+## Rename `RAKUDO_EXCEPTIONS_HANDLER` to `PERL6_EXCEPTIONS_HANDLER`
+
+There are actually erroneous proptests in `S04-exceptions/exceptions-json.t`
+that set `RAKUDO_EXCEPTIONS_HANDLER` variable.
+
+The var should be renamed (with some deprecation support for old name for some time)
+to a variant without a specific implementation name in it.
+
+The docs should also be amended to move this feature out from implementaion-specific
+features.
+
+### Stakeholder
+
+Zoffix Znet
+
+### Time Required to Implement
+
+3 hr
+
+----------------------------------------------------------------------
 
 ## Properly reserve all `:sym<>` colonpairs on subroutines
 
