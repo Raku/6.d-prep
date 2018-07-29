@@ -4,6 +4,29 @@ See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 
 # Implemented
 
+## Make `$*ARGFILES` := `$*IN` or `IO::ArgFiles.new($*IN)` inside MAIN
+
+It being based on `@*ARGS` is virtually never useful when you handle any sort of non-file arguments (which is what using MAIN implies).
+To allow lines(), get(), words(), and slurp() to Do The Right Thing when called and use `$*IN`, we should swap `$*ARGFILES` to `$*IN`
+(or to `IO::ArgFiles.new($*IN)`, to maintain `$*ARGFILES` type consistency),
+when we're inside `sub MAIN(){}` and only maintain the current behaviour of considering `@*ARGS` when outside of MAIN.
+
+Relevant discussions:
+
+* https://rt.perl.org/Ticket/Display.html?id=131703#txn-1471796
+* https://irclog.perlgeek.de/perl6/2017-07-05#i_14827209
+* https://irclog.perlgeek.de/perl6-dev/2017-07-05#i_14827981
+* https://github.com/rakudo/rakudo/issues/1946
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+4 hours
+
+----------------------------------------------------------------------
 
 ## Rename `RAKUDO_EXCEPTIONS_HANDLER` to `PERL6_EXCEPTIONS_HANDLER`
 
