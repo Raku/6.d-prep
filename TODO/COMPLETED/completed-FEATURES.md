@@ -4,6 +4,23 @@ See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 
 # Implemented
 
+## Change default for `num` to be `0e0`
+
+Per discussion in https://github.com/perl6/6.d-prep/issues/4
+
+There's a also a ton of propspec in S02-types/num.t for various ops expecting
+default to be a `NaN` that will need to be changed as well.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+10 hours
+
+----------------------------------------------------------------------
+
 ## Make `$*ARGFILES` := `$*IN` or `IO::ArgFiles.new($*IN)` inside MAIN
 
 It being based on `@*ARGS` is virtually never useful when you handle any sort of non-file arguments (which is what using MAIN implies).

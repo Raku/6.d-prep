@@ -59,6 +59,8 @@ may choose to make them available even when an earlier language version is reque
     - Constraints are now fully enforced
     - Attempting to parametarized type constraints on constants
         (i.e. using `my Foo constant @int`) now throws `X::ParametricConstant` exception
+- Native `num` variables now default to `0e0` instead of `NaN`
+
 
 ## Deprecations
 
