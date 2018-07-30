@@ -36,6 +36,56 @@ we can implement right now, rather than have that Issue hold everything up.
 
 # FEATURES
 
+## Use IEEE 754-2008 semantics for num/Num infix:</>, infix:<%>, and infix:<%%>
+
+**(Sidenote: be sure to check log(42, 1) does not explode when this is implemented.
+If it's decided not to implement this; change log(42, 1) to give a better error**
+
+Currently, division and related modulus operations with Nums return Failure if the
+divisor is zero. By IEEE rules, those would instead produce a NaN for 0e0/0e0 and
+Inf with the sign of the divident. Note: Division and related modulus operations where
+at least one operanad is a Num or num coerce both operands to Num
+
+The proposed behaviour has [TimToady's nod of approval](https://irclog.perlgeek.de/perl6-dev/2017-02-08#i_14066067)
+but is blocked by [three 6.c-errata tests](https://github.com/perl6/roast/blob/e73bb67f64c26926aa2665e64477d9a084821b48/S03-operators/div.t#L9-L11)
+
+Untested, but the implementation likely just involves removing all of the checks for
+0 divisors, as NQP ops already Do The Right Thing for nqp::div_n(). For nqp::mod_n()
+more examination is needed, the primary problem being that we don't do IEEE's
+remainder() operation with it, so what it's supposed to do in these edge cases is
+not declared by IEEE.
+
+```perl6
+    multi sub infix:</>(Num:D \a, Num:D \b) {
+        nqp::p6box_n(nqp::div_n(nqp::unbox_n(a), nqp::unbox_n(b)))
+    }
+    multi sub infix:</>(num $a, num $b) returns num {
+        nqp::div_n($a, $b)
+    }
+
+    multi sub infix:<%>(Num:D \a, Num:D \b) {
+        nqp::p6box_n(nqp::mod_n(nqp::unbox_n(a), nqp::unbox_n(b)))
+    }
+    multi sub infix:<%>(num $a, num $b) returns num {
+        nqp::mod_n($a, $b)
+    }
+```
+
+Similar treatment is needed for `Complex` numerics which currently partially follow IEEE:
+don't explode, but always produce a `NaN` instead of producing `+/-Inf` in cases where
+it's meant to be produced.
+
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+6 hours
+
+-----------------------------------------------------------------
+
 ## Implement secure way of opening a path
 
 i.e. having a guarantee that `$fh` is open to a file in `/foo/bar/file-I-asked/`
