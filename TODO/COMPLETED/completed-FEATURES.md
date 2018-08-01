@@ -4,6 +4,20 @@ See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 
 # Implemented
 
+## Deprecate `undefine`
+
+Per discussion in https://github.com/perl6/6.d-prep/issues/5
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+5 hours
+
+----------------------------------------------------------------------
+
 ## Change default for `num` to be `0e0`
 
 Per discussion in https://github.com/perl6/6.d-prep/issues/4

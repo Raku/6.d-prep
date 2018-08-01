@@ -75,6 +75,8 @@ methods for a longer period than 6.e release.
 - `Str.subst-mutate` (use `Str.subst` with `.=` methodcall assign metaop instead)
 - `Rational.norm` (`Rational` types are required to be normalized on creation now)
 - `IO::Path.child` (use `.add` instead)
+- `&undefine` (assign `Empty`/`Nil` directly, instead)
+
 
 ## Removals
 
