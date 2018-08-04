@@ -17,6 +17,25 @@ error as when, for example, you use `unit`... *"Too late to blah blah..."*
 
 # PROPOSED FEATURES
 
+## Sort out normalization of ZDRs
+
+There's a whole bunch of propspec that defines stuff for ZDRs with
+different numerators, like [`&[===]`](https://github.com/perl6/roast/commit/fd7c11bfc).
+
+Need to decide whether there's a away to avoid LTAness with normalized ZDRs
+or to fix all the bugs with non-normalized ZDRs and ensure all the propspec
+concerning this is as it should be.
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+40 hours
+
+-----------------------------------------------------------------
+
 ## Remove $/ magicalness from %() and @()
 
 And perhaps $() too; Per https://rt.perl.org/Ticket/Display.html?id=131392
