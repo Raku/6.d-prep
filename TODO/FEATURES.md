@@ -132,7 +132,8 @@ Zoffix Znet
 See https://github.com/rakudo/rakudo/issues/2075
 
 After Issue has a resolution, this roast work in `range-iterator-improvements`
-branch needs to be amended and merged to master: https://github.com/perl6/roast/commit/ab6ade455b
+branch needs to be amended and merged to master https://github.com/perl6/roast/commit/ab6ade455b
+as well as commit from `moaaar-iterator-cover` https://github.com/perl6/roast/commit/09f561314fd100c28c5da76bfb7e72f9b15d7d56
 
 ### Stakeholder
 
