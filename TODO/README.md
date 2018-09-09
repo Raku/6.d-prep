@@ -95,8 +95,8 @@ If you spot any questionable tests, bring it up in
 
 #### Reviewers
 
-* Zoffix (reached commit `75e15bbb2aca227d9896e9ff26cccff5acc88873`)
-    - Does only superficial review of Unicode tests due to lack of knowledge
+* Zoffix (reached commit `15b57e4361824d228a55ce72ed3234c76a622be5`)
+    - Does only superficial review of Unicode and CompUnit tests due to lack of knowledge
     - Does not do an in-depth review of many of own tests on assumption the tests
         were already well-thought and well-researched when they were written
 
