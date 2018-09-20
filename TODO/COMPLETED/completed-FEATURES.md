@@ -4,6 +4,28 @@ See [FEATURES.md](FEATURES.md) for features yet to be implemented.
 
 # Implemented
 
+-----------------------------------------------------------------
+
+## Remove $/ magicalness from %() and @()
+
+And perhaps $() too; Per https://rt.perl.org/Ticket/Display.html?id=131392
+and https://github.com/rakudo/rakudo/issues/1946
+
+If deferring until later language versions, fix up
+https://github.com/perl6/roast/commit/57e5a7d463 and
+https://github.com/perl6/roast/commit/7b568420dc
+
+
+### Stakeholder
+
+Zoffix
+
+### Time Required to Implement
+
+30 hours
+
+-----------------------------------------------------------------
+
 ## Deprecate `undefine`
 
 Per discussion in https://github.com/perl6/6.d-prep/issues/5
