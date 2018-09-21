@@ -13,6 +13,14 @@ appeared in.
 
 ## Roast
 
+### Throw out / Appendicize Exception Tests
+
+The way we created/thrown new exceptions is very ad-hoc and needs more thought.
+Don't spec particular exceptions in new tests until we have the time to
+properly evaluate Exceptions hierarchy. 
+http://colabti.org/irclogger/irclogger_log/perl6-dev?date=2018-09-21#l142
+
+
 ### Remove dead files
 
 Remove all the files that are currently skipped. (e.g. S24-testing/1-basic.t,
