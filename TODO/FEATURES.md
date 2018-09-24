@@ -15,48 +15,6 @@ error as when, for example, you use `unit`... *"Too late to blah blah..."*
     use v6.c; sub foo { use v6.d.PREVIEW; await start say 42 }()
 ```
 
-# PROPOSED FEATURES
-
-## Sort out normalization of ZDRs
-
-There's a whole bunch of propspec that defines stuff for ZDRs with
-different numerators, like [`&[===]`](https://github.com/perl6/roast/commit/fd7c11bfc).
-
-Need to decide whether there's a away to avoid LTAness with normalized ZDRs
-or to fix all the bugs with non-normalized ZDRs and ensure all the propspec
-concerning this is as it should be.
-
-UPDATE: TimToady OKed making throwage exceptions less precise and then we can 
-normalize ZDRs and be happy: http://colabti.org/irclogger/irclogger_log/perl6-dev?date=2018-09-21#l248
-
-```
-15:41 	TimToady 	.
-15:41 	yoleaux 	09:17Z <Zoffix> TimToady: what's your opinion on changing 6.c 
-spec's test that tests for "4" in this exception: `my $x = 4/0; say 42 + $x; => 
-Attempt to divide 4 by zero using div`. There are a couple of bugs to fix and 
-some performance benefits to reap if we don't report any particular value. We'd 
-do so by normalizing all zero-denominator Rationals to <-1/0>, <0/0>, and <1/0>
-15:41 	yoleaux 	09:26Z <Zoffix> TimToady: well, bugs could be fixed with 
-other means, by basically slowing down the common Rational ops with edge-case 
-logic to handle zero-denominator Rationals (ZDRs). Basically by normalizing 
-them the check for ZDRs becomes just a denominator check (and I tried marking 
-them with a role instead and doing MMD in the past, but dispatch ambiguities 
-creep up due to Rational role)
-15:41 		p6bannerbot set mode: +v ExtraCrispy
-15:41 	TimToady 	I'm fine with normalizing the inv/nan rats
-15:41 	Zoffix 	\o/
-15:42 	TimToady 	it's not like nums carry that info along either
-```
-
-
-### Stakeholder
-
-Zoffix
-
-### Time Required to Implement
-
-40 hours
-
 -----------------------------------------------------------------
 
 ## Remove all proptests for IO::Handle.new's attribute-setting
