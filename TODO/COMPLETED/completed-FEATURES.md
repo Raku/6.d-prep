@@ -1,6 +1,6 @@
 
 This document contains already implemented planned changes for v6.d.
-See [FEATURES.md](FEATURES.md) for features yet to be implemented.
+See [FEATURES.md](../FEATURES.md) for features yet to be implemented.
 
 # Implemented
 
