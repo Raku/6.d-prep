@@ -104,7 +104,7 @@ If you spot any questionable tests, bring it up in
 #### Reviewers
 
 * Zoffix (reached commit `1aa8a8ad1854dbeee92e212b2efa5206722f3750`)
-    - Does only superficial review of Unicode, CompUnit, and QuantHash op tests due to lack of knowledge
+    - Does only superficial review of Unicode, CompUnit, Pod, and QuantHash op tests due to limited knowledge of those features
     - Does not do an in-depth review of many of own tests on assumption the tests
         were already well-thought and well-researched when they were written
 
