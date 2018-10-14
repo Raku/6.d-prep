@@ -54,7 +54,9 @@ If you need to make some changes in the code you're reviewing, put
 out and tell how many "actual" new commits are in the 6.d language spec.
 
 One way to do a review is to go through all the commits and see if any of the
-newly added tests look off. To assist with that, you can create a handy alias:
+newly added tests look off. To assist with that, you can use the
+[spec view tool](https://github.com/perl6/roast/commit/1c5da5181b) or
+create a handy alias:
 
 (shell version)
 ```bash
