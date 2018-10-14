@@ -34,7 +34,7 @@ can be obtained by explicitly using `use v6.c` to request an older language vers
 All other changes do not conflict with the 6.c language version and implementations
 may choose to make them available even when an earlier language version is requested.
 
-#### New Methods
+#### New Routines
 
 - `Str.uniparse`: parse one or more Unicode character names into
     the actual characters
@@ -42,6 +42,7 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Handle.slurp`: new name for `.slurp-rest`
 - `IO::Path.add`: new name for `.child`; adding non-child paths explicitly allowed
 - `IO::Path.sibling`: allows to reference a sibling file or directory
+- `fails-like` in Test.pm6 module: allows testing for Failures
 
 #### New Types
 
