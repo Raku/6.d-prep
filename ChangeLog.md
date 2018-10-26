@@ -47,7 +47,7 @@ may choose to make them available even when an earlier language version is reque
 
 - Loops can now produce a list of values
 - `.perl` can now be called on consumed `Seq`s
-- Numerious improvements to auto-generated `USAGE` message
+- Numerous improvements to auto-generated `USAGE` message
 - `Parameter.perl` now includes introspectable defaults
 
 #### New Parameters
