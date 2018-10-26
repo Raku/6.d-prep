@@ -24,6 +24,15 @@ This document lists changes in Perl 6.d (Diwali) language from Perl 6.c (Christm
 version. A particular implementation of the language may contain additional
 changes; please consult with the changelog for your implementation.
 
+# Scope / Target Audience
+
+This ChangeLog is targeted towards language users, to help with preparation
+to use compilers supporting latest language version. Thus, it does not
+contain every minute change to the specification that occurred.
+Implementations wishing to ensure full compliance with the new version of the
+language specification should execute the test suite and examine any failing
+tests.
+
 ## Additions
 
 These are new features that did not exist in 6.c language. For details about
@@ -34,8 +43,21 @@ can be obtained by explicitly using `use v6.c` to request an older language vers
 All other changes do not conflict with the 6.c language version and implementations
 may choose to make them available even when an earlier language version is requested.
 
+#### New Behaviors
+
+- Loops can now produce a list of values
+- `.perl` can now be called on consumed `Seq`s
+- Numerious improvements to auto-generated `USAGE` message
+- `Parameter.perl` now includes introspectable defaults
+
+#### New Parameters
+- `Date.new` now accepts a `:&formatter` that controls how
+    that date is stringified
+
 #### New Routines
 
+- `.hyper`/`.race`: process a list of values in parallel
+- `Seq.from-loop`: generate a `Seq` from a `Callable`
 - `Str.uniparse`: parse one or more Unicode character names into
     the actual characters
 - `Str.parse-base`: inverse of `Int.base` operation
@@ -43,6 +65,7 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Path.add`: new name for `.child`; adding non-child paths explicitly allowed
 - `IO::Path.sibling`: allows to reference a sibling file or directory
 - `fails-like` in Test.pm6 module: allows testing for Failures
+- `Buf` now has `.append`, `.push`, `.prepend`, and `.unshift` methods
 
 #### New Types
 
@@ -52,6 +75,10 @@ may choose to make them available even when an earlier language version is reque
 
 - `$*USAGE`: available inside `MAIN` subs and contains the auto-generated
   USAGE message
+
+#### Clarifications of Edge Case Behaviour
+
+- `permutations`/`combinations` on 1- and 0-item lists
 
 #### Miscellaneous
 
