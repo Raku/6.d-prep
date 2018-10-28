@@ -51,7 +51,7 @@ may choose to make them available even when an earlier language version is reque
 #### New Behaviors
 
 - Loops can now produce a list of values
-- `.perl` can now be called on consumed `Seq`s and multi-dimentional arrays
+- `.perl` can now be called on consumed `Seq`s and multi-dimensional arrays
 - Numerous improvements to auto-generated `USAGE` message
 - `Parameter.perl` now includes introspectable defaults
 - `%*ENV` values are now allomorphic
