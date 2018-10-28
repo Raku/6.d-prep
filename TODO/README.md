@@ -17,7 +17,7 @@ appeared in.
 
 The way we created/thrown new exceptions is very ad-hoc and needs more thought.
 Don't spec particular exceptions in new tests until we have the time to
-properly evaluate Exceptions hierarchy. 
+properly evaluate Exceptions hierarchy.
 http://colabti.org/irclogger/irclogger_log/perl6-dev?date=2018-09-21#l142
 
 
