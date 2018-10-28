@@ -59,11 +59,3 @@ as planned for deprecation in [`deferred-to-6.e`](deferred-to-6.e/) files.
 
 See which features that currently require `use experimental` are solid enough to
 make them non-experimental in 6.d
-
-## See if we can nail down the META6.json spec
-
-And codify it as tests in roast. Even if entire spec won't be done, would be nice to
-standardize [`"auth"` key](https://irclog.perlgeek.de/perl6/2017-08-09#i_14991431) because
-~~we're basically ready to have multi-source ecosystem that supports same-name-multiple-author naming, but without a nailed down "auth" it's hard to make use of that system.~~ *we already have it and we [do have problems](https://github.com/perl6/modules.perl6.org/issues/106)*
-
-A roast Issue for the `auth` key has been filed as well: https://github.com/perl6/roast/issues/450
