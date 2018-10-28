@@ -6,11 +6,6 @@
 The [FEATURES.md](FEATURES.md) lists the proposed features that need to be
 implemented by their stakeholders.
 
-## Documentation Website
-
-Implement ability to mark features with the language version they first
-appeared in.
-
 ## Roast
 
 ### Throw out / Appendicize Exception Tests
