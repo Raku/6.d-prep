@@ -6,15 +6,6 @@ If you're contemplating implementing a new feature, consider implementing it in 
 
 # IN NEED OF IMPLEMENTATION
 
-## `use v6.d.PREVIEW` in wrong place needs to throw
-
-For example, this code silently fails. It should throw the same style of
-error as when, for example, you use `unit`... *"Too late to blah blah..."*
-
-```perl6
-    use v6.c; sub foo { use v6.d.PREVIEW; await start say 42 }()
-```
-
 -----------------------------------------------------------------
 
 ## Remove all proptests for IO::Handle.new's attribute-setting
@@ -36,4 +27,3 @@ Zoffix Znet
 ### Time Required to Implement
 
 1 hr
-

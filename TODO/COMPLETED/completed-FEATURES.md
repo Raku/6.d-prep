@@ -7,6 +7,15 @@ See [FEATURES.md](../FEATURES.md) for features yet to be implemented.
 
 # PROPOSED FEATURES
 
+## `use v6.d.PREVIEW` in wrong place needs to throw
+
+For example, this code silently fails. It should throw the same style of
+error as when, for example, you use `unit`... *"Too late to blah blah..."*
+
+```perl6
+    use v6.c; sub foo { use v6.d.PREVIEW; await start say 42 }()
+```
+
 ## Sort out normalization of ZDRs
 
 There's a whole bunch of propspec that defines stuff for ZDRs with
