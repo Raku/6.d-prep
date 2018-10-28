@@ -49,8 +49,3 @@ warning](https://github.com/rakudo/rakudo/issues/1289) based on language version
 These routines should be logged in release docs as deprecated even though they
 might stick around for awhile and start to warn only in 6.e. These are listed
 as planned for deprecation in [`deferred-to-6.e`](deferred-to-6.e/) files.
-
-## Experimental Features
-
-See which features that currently require `use experimental` are solid enough to
-make them non-experimental in 6.d
