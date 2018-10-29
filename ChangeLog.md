@@ -50,6 +50,7 @@ may choose to make them available even when an earlier language version is reque
 
 #### New Behaviors
 
+- Major clarifications and redesign of all set operators
 - Loops can now produce a list of values from the values of last statements
 - `next`/`last`/`redo` in a loop that collects its last statement values
     return `Empty` for the iterations they run on
@@ -78,14 +79,23 @@ may choose to make them available even when an earlier language version is reque
 - Junctions can now be used as a matcher in `.first`
 - Native attributes can now be used as bind targets in parameters
 - `Proc` can now work with `IO::Pipe`s from other `Proc`s
-
+- Typed arrays can be created with both `my SomeType @array`
+    and `my @array of SomeType`
+- Items with negative weights are now removed when coercing
+    a `Mixy` to `Setty`/`Baggy`
+- `:nth` adverb on `m//` now accepts a `Junction` as argument
+- `CX::Warn` and `CX::Done` can now be caught inside `CONTROL` phaser
 
 #### Math
 
+- [6.d] Native `num` types now default to `0e0` instead of `NaN`
 - `-Inf`, `Inf`, and `NaN` can now be round-tripped through `Rat` type
     by being represented as values `<-1/0>`, `<1/0>`, and `<0/0`> respectively.
     Zero-denominator `Rational`s are now normalized to one of those three values
 - Calling `.Int` on ±`Inf` and `NaN` now throws
+- Improved IEEE 754-2008 compliance in `Num` operators and math functions
+- Stringification of `Num` type is now required to be roundtrippable
+    to the original `Num`
 
 #### New Parameters
 - `Date.new` now accepts a `:&formatter`
@@ -94,6 +104,7 @@ may choose to make them available even when an earlier language version is reque
 
 #### New Routines
 
+- `submethod TWEAK`: similar to `BUILD` except runs after defaults has been set
 - `&duckmap`: apply `&callable` on each element that behaves in such a way
     that `&callable` can be applied
 - `&take-rw` like `&take` but with a writable container
@@ -108,6 +119,7 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Path.mode`: retrieve file mode
 - `fails-like` in Test.pm6 module: allows testing for Failures
 - `bail-out` in Test.pm6 module: exit out of failing test suite
+- `is-approx` in Test.pm6 module: test a number is approximately like another
 - `Buf` now has `.allocate`, `.reallocate`, `.append`, `.push`, `.pop`,
     `.splice`, `.prepend`, and `.unshift` methods
 - `Range` now supports `.rand`
@@ -118,7 +130,9 @@ may choose to make them available even when an earlier language version is reque
 - `.categorize-list` method is now available on `Hash` and `Baggy` types
 - `Code.of`: returns the return type constraint
 - `Code.line`/`.file`: returns the line/file of definition
-- `Proc::Async.command`: the command we're executing
+- XXX TODO: https://github.com/rakudo/rakudo/issues/2444
+- `Proc.command`/`Proc::Async.command`: the command we're executing
+- `Proc.signal`: the signal the process was killed with
 - `Complex` type now provides `.reals`, `.ceiling`, `.floor`, `.round`,
     `.truncate`, and `.abs` methods and can be compared with `<=>` (as
     long as the imaginary part is negligible)
@@ -192,6 +206,11 @@ may choose to make them available even when an earlier language version is reque
 - `Nil.ord` returns an empty `Seq`
 - `Nil.chrs` returns a `"\0"`
 - `Num.new` coercers argument to `Num`
+- `infix:<Z>()` returns an empty `Seq`
+- Reduce with `&infix:<+>` with one item now simply returns that item
+- `()[0]` returns `Nil`
+- Regex smartmatching is now allowed on (possibly-infinite) `Seq`
+- `Set` converted to a `Mix`/`Bag` no longer has `Bool` weights
 
 #### Miscellaneous
 
@@ -232,6 +251,7 @@ methods for a longer period than 6.e release.
 - `&undefine` (assign `Empty`/`Nil` directly, instead)
 - `:count` argument on `&lines`/`Str.lines` routines
     (use `.elems` call on returned `Seq` instead)
+- `&is_approx` in Test.pm6 (use the very similar `&is-approx` instead)
 
 ## Removals
 
