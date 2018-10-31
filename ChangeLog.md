@@ -50,7 +50,6 @@ may choose to make them available even when an earlier language version is reque
 
 #### New Behaviors
 
-- Major clarifications and redesign of all set operators
 - Loops can produce a list of values from the values of last statements
 - `next`/`last`/`redo` in a loop that collects its last statement values
     return `Empty` for the iterations they run on
@@ -96,6 +95,17 @@ may choose to make them available even when an earlier language version is reque
 - Improved IEEE 754-2008 compliance in `Num` operators and math functions
 - Stringification of `Num` type is required to be roundtrippable
     to the original `Num`
+    
+#### Sets, Bags, Mixes (aka QuantHashes)
+
+- Major clarifications and redesign of all set operators
+- `.classify-list` method is available on `Baggy` types
+- `.categorize-list` method is available on `Baggy` types
+- `.invert` method is available on core `QuantHash` types
+- `.antipairs` method can be used on `QuantHash` types
+- `QuantHash` types have `.new-from-pairs` and methods to convert one
+    `QuantHash` type to another (e.g. `.Bag` method on `Set` type)
+- `.hash` on `QuantHash` types does stringify keys
 
 #### New Parameters
 - `Date.new` accepts a `:&formatter`
@@ -123,11 +133,9 @@ may choose to make them available even when an earlier language version is reque
 - `Buf` has `.allocate`, `.reallocate`, `.append`, `.push`, `.pop`,
     `.splice`, `.prepend`, and `.unshift` methods
 - `Range` supports `.rand`
-- `.antipairs` method can be used on `QuantHash` types
 - `Backtrace` has methods `.map`, `.flat`, `.concise`, and `.summary`
-- `.invert` method is available on core `QuantHash` types
-- `.classify-list` method is available on `Hash` and `Baggy` types
-- `.categorize-list` method is available on `Hash` and `Baggy` types
+- `.classify-list` method is available on `Hash` types
+- `.categorize-list` method is available on `Hash` types
 - `Code.of`: returns the return type constraint
 - `Code.line`/`.file`: returns the line/file of definition
 - XXX TODO: https://github.com/rakudo/rakudo/issues/2444
@@ -146,8 +154,6 @@ may choose to make them available even when an earlier language version is reque
 - `List` type has `.to` and `.from` methods
 - `Map` type provides `Int` method, returning the number of pairs
 - `Map` provides `.clone`
-- `QuantHash` types have `.new-from-pairs` and methods to convert one
-    `QuantHash` type to another (e.g. `.Bag` method on `Set` type)
 
 #### New Types
 
@@ -177,7 +183,6 @@ may choose to make them available even when an earlier language version is reque
 - `.[*-0]` index is defined
 - Negative gaps in `.rotor` that are larger than the sublist throw
 - Non-`Int` arguments to `.rotor` get coerced to `Int`
-- `.hash` on `QuantHash` types does stringify keys
 - `.lines` is defined when reading `/proc` files
 - Defined behaviour of Thai numerals in postfix/prefix `++`/`--` on strings
 - `map` inside sunk `for` is treated as sunk
@@ -188,7 +193,7 @@ may choose to make them available even when an earlier language version is reque
 - `.pairup` on a type object returns an empty `Seq`
 - Synthetic codepoints are rejected from `Date`/`DateTime` constructors
 - `⸨`/`⸩` pair can now be used as matching characters in quoting constructs
-- `.flat` on `Array` typeobject simply returns that type object
+- `.flat` on `Array` type object simply returns that type object
 - Mixed-level `classify` on `Hash`es throws
 - `Junction`s can be used to specify multiple keys to `Hash`es
 - The `Callable` given to `.classify-list` is now guaranteed to be
