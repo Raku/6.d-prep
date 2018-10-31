@@ -165,7 +165,7 @@ may choose to make them available even when an earlier language version is reque
 - `PERL6_TEST_DIE_ON_FAIL` environmental variable: stop test
     suite on first failure
 
-#### Clarifications of Edge Case/Coersion Behaviour
+#### Clarifications of Edge Case/Coercion Behaviour
 
 - Defined behaviour of `permutations`/`combinations` on 1- and 0-item
     lists and negative and non-Int arguments
