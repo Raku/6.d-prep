@@ -1,11 +1,6 @@
 
 # List of TODO items required for 6.d language release
 
-## FEATURES
-
-The [FEATURES.md](FEATURES.md) lists the proposed features that need to be
-implemented by their stakeholders.
-
 ## Roast
 
 ### Throw out / Appendicize Exception Tests
