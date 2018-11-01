@@ -103,7 +103,7 @@ may choose to make them available even when an earlier language version is reque
   - Set operators are at liberty to not create any QuantHash if they can perform the desired functionality without them
 - Set operations on different types of QuantHashes will coerce to the most liberal form (Set -> Bag -> Mix)
 - The set_precedes family of set operators ( `(<+)`, `≼`, `(>+)`, `≽`) has been removed
-  - Used to be a Baggy for of subset
+  - Used to be a Baggy form of the subset operator
   - QuantHashes are upgraded to their most liberal form, so `(<=)`, `⊆`, `(>=)`, `⊇` do the right thing
 - `.classify-list` method is available on `Baggy` types
 - `.categorize-list` method is available on `Baggy` types
