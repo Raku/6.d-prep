@@ -99,7 +99,7 @@ may choose to make them available even when an earlier language version is reque
 #### Sets, Bags, Mixes (aka QuantHashes) and set operators
 
 - Set operators can be used on any object and will be coerced when needed
-  - So no pre-coercion is needed or wanted)
+  - So no pre-coercion is needed or wanted
   - Set operators are at liberty to not create any QuantHash if they can perform the desired functionality without them
 - Set operations on different types of QuantHashes will coerce to the most liberal form (Set -> Bag -> Mix)
 - The set_precedes family of set operators ( `(<+)`, `≼`, `(>+)`, `≽`) has been removed
