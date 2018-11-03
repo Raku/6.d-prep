@@ -51,6 +51,7 @@ may choose to make them available even when an earlier language version is reque
 #### New Behaviors
 
 - [6.d] `&await` no longer blocks *a thread* while waiting
+- [6.d] `whenever` not in lexical scope of `react` throws
 - `QuantHash`es/`Map` in `%` variables and `List` in `@` variables
     can be declared with `is` trait (e.g. `my %h is Set`)
 - New `<ww>` regex rule: match within word only
@@ -103,6 +104,7 @@ may choose to make them available even when an earlier language version is reque
 - `for` loop automatically serializes `RaceSeq`/`HyperSeq`; use new `for`
     statement modifiers `hyper for`/`race for` to avoid
 - `&infix:<does>` can be used with non-composable instances on RHS
+- Numeric comparators can be used with `DateTime` objects
 
 #### Math
 
@@ -149,6 +151,7 @@ may choose to make them available even when an earlier language version is reque
 - `&note` can be called with no arguments
 - `open` accepts `:out-buffer`
 - `IO::Path.resolve` can take `:completely`
+- `IO::Path.parent` can take an `Int` indicating parent level
 - `Proc::Async.new` slurps positional arguments
 - `Signature.ACCEPTS` accepts non-`Signature`/`Capture` arguments
 - `&EVAL` can take a `Blob`
@@ -205,11 +208,11 @@ may choose to make them available even when an earlier language version is reque
 - `.categorize-list` method is available on `Hash` types
 - `Code.of`: returns the return type constraint
 - `Code.line`/`.file`: returns the line/file of definition
-- `Proc::Async` provides `.Supply`, `.ready`, `.bind-stdin`,
+- `Proc::Async` provides `.Supply`, `.ready`, `.pid`, `.bind-stdin`,
     `.bind-stdout`, and `.bind-stderr`
 - XXX TODO: https://github.com/rakudo/rakudo/issues/2444
 - `Proc.command`/`Proc::Async.command`: the command we're executing
-- `Proc.signal`: the signal the process was killed with
+- `Proc` provides `.signal`, `.pid`, and `.encoding`
 - `Complex` provides `.cis`, `.reals`, `.ceiling`, `.floor`, `.round`,
     `.truncate`, and `.abs` methods and can be compared with `<=>` (as
     long as the imaginary part is negligible)
@@ -313,6 +316,7 @@ may choose to make them available even when an earlier language version is reque
 - `Nil.chrs` returns a `"\0"`
 - `Num.new` coercers argument to `Num`
 - `infix:<Z>()` returns an empty `Seq`
+- `.comb` always returns a `Seq`
 - Reduce with `&infix:<+>` with one item simply returns that item
 - `()[0]` returns `Nil`
 - Regex smartmatching is allowed on (possibly-infinite) `Seq`
@@ -366,6 +370,14 @@ may choose to make them available even when an earlier language version is reque
 - Can bind to native type attributes in build methods
 - `WhateverCode` propagates `use fatal`
 - `say`, `note`, `put`, `print`, and `printf` routines autothread `Junction`s
+- `IO::Handle.eof` value changes accordingly when `.seek`ing past end and back
+- Defined `.succ`, `.pred`, and `.Bool` on allomorphs
+- Defined `.Bridge` on core `Numeric`s
+- Defined `.Numeric`/`.Real` on type objects of core `Numeric`s
+- Defined `Rational.Bool` with respect to zero-denominator rationals
+- `say`/`note` guaranteed to call `.gist` on subclasses of `Str`
+- Defined `Junction.Str` returns a `Junction`
+- Defined `Junction.gist`/`.perl` return a `Str`
 
 #### Miscellaneous
 
