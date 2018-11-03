@@ -91,6 +91,7 @@ may choose to make them available even when an earlier language version is reque
 - Any open handles at `END` time get automatically closed
 - On a cached `Seq`, the cached list is used when `&infix:<eqv>`, `.Slip`,
     `.join`, `.List`, `.list`, `.eager`, `.Array` and `.is-lazy` are called
+- `IO::Handle.encoding` takes `Nil` to indicate switch to binary mode
 
 #### Math
 
@@ -132,7 +133,7 @@ may choose to make them available even when an earlier language version is reque
 - `unique` and `.repeated` can take `:&as` and `:&with`
 - `&plan` in Test.pm6 can take `:skip-all`
 - `IO::Path.resolve` can take `:completely`
-- `&note` and `&prompt` can be called with no arguments
+- `&note` can be called with no arguments
 
 #### New Routines and Operators
 
@@ -146,6 +147,7 @@ may choose to make them available even when an earlier language version is reque
 - `&take-rw`: like `&take` but with a writable container
 - `&indir`: execute code in a given `$*CWD`
 - `&spurt`: see `IO::Path.spurt`
+- `&prompt`: prompt user for input
 - `uniprops`: multi-character version of `uniprop`
 - `symlink`: create a file symlink
 - `link`: create a file hardlink
@@ -154,10 +156,12 @@ may choose to make them available even when an earlier language version is reque
 - `Str.uniparse`: parse one or more Unicode character names into
     the actual characters
 - `Str.parse-base`: inverse of `Int.base` operation
-- `IO::Path` provides `.ACCEPTS`, `.add`, `.extension`,
-    `.mode`, `.parts`, `.sibling`, and `.spurt`
+- `IO::Path` provides `.ACCEPTS`, `.SPEC`, `.CWD`, `.Numeric`, `.add`,
+    `.extension`, `.mode`, `.parts`, `.sibling`, and `.spurt`
 - `IO::Handle` provides `.DESTROY`, `.flush`, `.lock`, `.unlock`, `.tell`,
-    `.slurp`, `.seek`, and `.printf`
+    `.say`, `.slurp`, `.seek`, `.printf`, `.print-nl`, and `.watch`
+- `IO::Pipe` provides `.proc`
+- `Proc::Async` provides `.ready`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
 - `Mu.emit`: method form of `&emit`
@@ -191,8 +195,8 @@ may choose to make them available even when an earlier language version is reque
 - `Any.skip`: skip values in a list
 - `Any.batch`: more basic cousin of `.rotor`
 - `Mu.iterator`: produce an `Iterator` for values in a list
-- `IO::Spec::*` types provide `.tmpdir` and `.extension`
-- `Pair` provides `.Pair` and `.ACCEPTS`
+- `IO::Spec::*` types provide `.tmpdir`, `.extension`, and `.path`
+- `Pair` provides `.ACCEPTS`, `.Pair`, and `.invert`
 - `.Capture` method is well-defined for all core types
 
 #### New Types
@@ -280,13 +284,14 @@ may choose to make them available even when an earlier language version is reque
 - All `Numeric` literals are supported as value literals in signature
 - `\b` and `\B` in regexes throw `X::Obsolete`
 - `True` and `False` as value literals in signatures warn
-- Return type of `.sort` is always `Seq`
+- Return type of `.sort` and `IO::Spec::Unix.path` is always `Seq`
 - Out-of-range `.AT-POS` on `Range` objects returns `Nil`
 - `Pair.AT-KEY` for non-existent key returns `Nil`
 - All `Cool` types provide `.Rat`/`.FatRat` coercers
 - `IO::Path` filetests do not cache results of earlier test executions
 - `Seq` eqv `List` as `False` based on type mismatch alone
-- On arrays, values from `.values` and `.pairs` sequences are writable
+- On arrays, `Hash`es, and `QuantHash`es, values
+    from `.kv`, `.values`, and `.pairs` sequences are writable
 - `&infix:<∘>`/`&infix:<o>` keep LHF's `.of` and RHS's `.arity` and `.count`
 - Refined accepted arguments in regex operator adverbs (e.g. `:in(…)`)
 - Refined accepted combinations of arguments in `IO::Handle.open`
@@ -298,6 +303,7 @@ may choose to make them available even when an earlier language version is reque
 - More defined edge-case behaviour, `Callable` handling, and chaining of
     `&infix:<andthen>`, `&infix:<orelse>`, and `&infix:<notandthen>` operators
 - Zen slicing of `Seq`s does *not* cache them
+- `List.Capture` stringifies keys of any contained `Pair` objects
 
 #### Miscellaneous
 
