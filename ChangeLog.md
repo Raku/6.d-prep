@@ -93,9 +93,12 @@ may choose to make them available even when an earlier language version is reque
     Zero-denominator `Rational`s are normalized to one of those three values
 - Calling `.Int` on ±`Inf` and `NaN` throws
 - Improved IEEE 754-2008 compliance in `Num` operators and math functions
+- Negative zero `Num` (`-0e0`) gets correctly
+    handled by all routines and syntactical constructs
 - Stringification of `Num` type is required to be roundtrippable
     to the original `Num`
-    
+- Defined `Complex` exponentiation involving zeros
+
 #### Sets, Bags, Mixes (aka QuantHashes) and set operators
 
 - Set operators can be used on any object and will be coerced when needed
@@ -114,25 +117,32 @@ may choose to make them available even when an earlier language version is reque
 - `.hash` on `QuantHash` types does stringify keys
 
 #### New Parameters
+
 - `Date.new` accepts a `:&formatter`
 - `.first` can take `:$kv`
 - `unique` and `.repeated` can take `:&as` and `:&with`
 
-#### New Routines
+#### New Routines and Operators
 
+- `TR///`: non-mutating version of `tr///`
 - `submethod TWEAK`: similar to `BUILD` except runs after defaults has been set
 - `&duckmap`: apply `&callable` on each element that behaves in such a way
     that `&callable` can be applied
+- `&deepmap`: apply `&callable` on each element, descending into `Iterable`s
 - `&take-rw` like `&take` but with a writable container
+- `uniprops`: multi-character version of `uniprop`
 - `.hyper`/`.race`: process a list of values in parallel
 - `Seq.from-loop`: generate a `Seq` from a `Callable`
 - `Str.uniparse`: parse one or more Unicode character names into
     the actual characters
 - `Str.parse-base`: inverse of `Int.base` operation
-- `IO::Handle.slurp`: new name for `.slurp-rest`
 - `IO::Path.add`: new name for `.child`; adding non-child paths explicitly allowed
 - `IO::Path.sibling`: allows to reference a sibling file or directory
 - `IO::Path.mode`: retrieve file mode
+- `IO::Handle` provides `.slurp` and `.printf`
+- `Iterator` provides `.skip-one`, `.skip-at-least`,
+    and `.skip-at-least-pull-one`
+- `Mu.emit`: method form of `&emit`
 - `fails-like` in Test.pm6 module: allows testing for Failures
 - `bail-out` in Test.pm6 module: exit out of failing test suite
 - `is-approx` in Test.pm6 module: test a number is approximately like another
@@ -150,8 +160,9 @@ may choose to make them available even when an earlier language version is reque
 - `Complex` type provides `.reals`, `.ceiling`, `.floor`, `.round`,
     `.truncate`, and `.abs` methods and can be compared with `<=>` (as
     long as the imaginary part is negligible)
-- `DateTime` type provides `.offset-in-hours` and `.Date` and can be
-    compared with other `DateTime` objects using `<=>` operator
+- `DateTime` type provides `.offset-in-hours`, `.hh-mm-ss`
+    and `.Date` and can be compared with other `DateTime`
+    objects using `<=>` operator
 - `Date` provides `.DateTime` method
 - `&infix:<+>`/`&infix:<->` can be called with `Duration` and `Real` types
 - `Enumeration` provides `.kv`, `.pair`, and `.Int` methods
@@ -174,15 +185,21 @@ may choose to make them available even when an earlier language version is reque
 
 - `$*USAGE`: available inside `MAIN` subs and contains the auto-generated
   USAGE message
+- `$*COLLATION`: configures the four Unicode collation levels
 - `PERL6_TEST_DIE_ON_FAIL` environmental variable: stop test
     suite on first failure
 
 #### Clarifications of Edge Case/Coercion Behaviour
 
+- `UInt` smartmatches `True` with `Int` type object
+- `sink` statement prefix explodes `Failure`s
 - Defined behaviour of `permutations`/`combinations` on 1- and 0-item
     lists and negative and non-Int arguments
 - `val`, `Str.Numeric`, and other `Str` numeric conversion methods
-    throw when trying to convert Unicode `No` character group
+    throw when trying to convert Unicode `No` character
+    group or synthetic numerics
+- Synthetic numerics cannot be used in `:42foo` colonpair shortcut
+- An `Enumeration` can now be used as a array shape specifier
 - Numeric conversion of `Str` containing nothing but whitespace returns `0` now
 - `samemark` with empty pattern argument simply returns the invocant
 - `.polymod` can be used with `lazy` but finite lists of divisors
@@ -220,8 +237,19 @@ may choose to make them available even when an earlier language version is reque
 - `infix:<Z>()` returns an empty `Seq`
 - Reduce with `&infix:<+>` with one item simply returns that item
 - `()[0]` returns `Nil`
-- Regex smartmatching is now allowed on (possibly-infinite) `Seq`
+- Regex smartmatching is allowed on (possibly-infinite) `Seq`
 - `Set` converted to a `Mix`/`Bag` no longer has `Bool` weights
+- `gcd` is defined when one or more operands are `0`
+- `Junction`s autothread in `defined` routine
+- `sum` can handle lists with `Junctions` in them
+- `Grammar.parse` lets top `regex` backtrack
+- The `U+2212 MINUS SIGN [Sm] (−)` is now supported by more constructs,
+    such as `Str.Numeric` and `&val`
+- Arity-1 `&infix:<~>` works with `Blob`s
+- `Supply.interval` minimum value is `0.001`; lower values are
+    treated as `0.001` and emit warnings
+- All `Numeric` literals are supported as value literals in signature
+- `\b` and `\B` in regexes throw `X::Obsolete`
 
 #### Miscellaneous
 
@@ -238,13 +266,18 @@ may choose to make them available even when an earlier language version is reque
 - `&infix:< >` supports lookup of autogenerated `Callables` (e.g. `&infix:<XX>`)
 - Using a named `anon` sub does no longer produces redeclaration warnings
 - Extended spec of `::?MODULE`/`$?MODULE` variable
-- `sub MAIN` can accept a `where` clause on arguments
+- `sub MAIN` can accept an `Enumeration` type constraint and `where`
+    clause on arguments
 - Type smiley constraints can be used on subsets
 - `start` blocks and thunks get fresh `$/` and `$!`
 - `R` meta operator used with list-associative operators is defined
 - Type coerces can be used in signature return type constraints
 - `&infix:<x>`/`&infix:<x>` throw with `-Inf`/`NaN` repeat arguments
 - Literal constructs `put` and `put for` throw, requiring use of parentheses
+- [6.d] On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is
+    reserved, in anticipation of possible future use.
+- Expanded specification coverage of Unicode routines and features
+- Upgraded coverage to Unicode version 11
 
 ## Deprecations
 
@@ -274,8 +307,3 @@ methods for a longer period than 6.e release.
   for at least one language implementation to have that feature implemented
   as a proof-of-viability, before they're accepted to be a part of a released
   language specification.
-
-## MISC
-
-- On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is now reserved,
-  in anticipation of possible future use.
