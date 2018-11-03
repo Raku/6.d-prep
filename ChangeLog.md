@@ -97,6 +97,9 @@ may choose to make them available even when an earlier language version is reque
 - Parameters with `is rw` trait are considered narrower in multi dispatch
     than thouse without it
 - `.gist` of `Blob` and `Map` gets trimmed to 100 elements
+- New `for` statement modifiers `hyper for`, `race for`, and `lazy for`
+- `for` loop automatically serializes `RaceSeq`/`HyperSeq`; use new `for`
+    statement modifiers `hyper for`/`race for` to avoid
 
 #### Math
 
@@ -114,6 +117,7 @@ may choose to make them available even when an earlier language version is reque
 - Stringification of `Num` type is required to be roundtrippable
     to the original `Num`
 - Defined `Complex` exponentiation involving zeros
+- Negative powers in `.expmod` are valid
 
 #### Sets, Bags, Mixes (aka QuantHashes) and set operators
 
@@ -132,7 +136,7 @@ may choose to make them available even when an earlier language version is reque
     `QuantHash` type to another (e.g. `.Bag` method on `Set` type)
 - `.hash` on `QuantHash` types does stringify keys
 
-#### New Parameters
+#### New Parameters and Arguments
 
 - `Date.new` accepts a `:&formatter`
 - `.first` can take `:$kv`
@@ -140,9 +144,12 @@ may choose to make them available even when an earlier language version is reque
 - `&plan` in Test.pm6 can take `:skip-all`
 - `&run`/`&shell` can take `:merge`
 - `&note` can be called with no arguments
+- `open` accepts `:out-buffer`
 - `IO::Path.resolve` can take `:completely`
 - `Proc::Async.new` slurps positional arguments
+- `Signature.ACCEPTS` accepts non-`Signature`/`Capture` arguments
 - `&EVAL` can take a `Blob`
+- `Promise.keep`/`.break` can be called with no arguments
 
 #### New Routines and Operators
 
@@ -178,7 +185,7 @@ may choose to make them available even when an earlier language version is reque
     `.extension`, `.mode` and numerious file tests, `.parts`,
     `.sibling`, and `.spurt`
 - `IO::Handle` provides `.DESTROY`, `.readchars`, `.flush`, `.lock`,
-    `.unlock`, `.tell`, `.say`, `.slurp`, `.seek`, `.printf`,
+    `.unlock`, `.out-buffer`, `.tell`, `.say`, `.slurp`, `.seek`, `.printf`,
     `.print-nl`, and `.watch`
 - `IO::Pipe` provides `.proc`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
@@ -224,6 +231,7 @@ may choose to make them available even when an earlier language version is reque
 - `Thread.is-initial-thread`: are we running in the initial thread?
 - `Match` provides `.Int` and `.actions`
 - `IO::Socket::Async` provides `.socket-port` and `.peer-port`
+- `Promise` provides alternative constructors `.kept` and `.broken`
 
 #### New Types
 
@@ -314,8 +322,6 @@ may choose to make them available even when an earlier language version is reque
 - The `U+2212 MINUS SIGN [Sm] (−)` is now supported by more constructs,
     such as `Str.Numeric` and `&val`
 - Arity-1 `&infix:<~>` works with `Blob`s
-- `Supply.interval` minimum value is `0.001`; lower values are
-    treated as `0.001` and emit warnings
 - All `Numeric` literals are supported as value literals in signature
 - `\b` and `\B` in regexes throw `X::Obsolete`
 - `True` and `False` as value literals in signatures warn
@@ -349,6 +355,10 @@ may choose to make them available even when an earlier language version is reque
 - `&infix:<eqv>` can work with certain cases of lazy arguments
 - Dynamic lookup (`::(…)`) is restricted regex syntax and
     requires `use MONKEY-SEE-NO-EVAL` clearance
+- Defined `.Slip` and `.List` on arrays with holes
+- `Promise.in`/`.at` and `Supply.interval` work with zero and negative values
+- `Supply.interval` minimum value is `0.001`; lower values are
+    treated as `0.001` and emit warnings
 
 #### Miscellaneous
 
