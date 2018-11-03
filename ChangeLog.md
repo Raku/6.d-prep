@@ -133,12 +133,21 @@ may choose to make them available even when an earlier language version is reque
 - `.first` can take `:$kv`
 - `unique` and `.repeated` can take `:&as` and `:&with`
 - `&plan` in Test.pm6 can take `:skip-all`
+- `&run`/`&shell` can take `:merge`
 - `&note` can be called with no arguments
 - `IO::Path.resolve` can take `:completely`
 - `Proc::Async.new` slurps positional arguments
 
 #### New Routines and Operators
 
+- New `atomicint` Unicode operators and ASCII alternatives that guarantee
+    thread-safe, atomic operation:
+    `&infix:<⚛=>`/`&atomic-assign`, `&prefix:<⚛>`/`&atomic-fetch`,
+    `&prefix:<++⚛>`/`&atomic-inc-fetch`, `&postfix:<⚛++>`/`&atomic-fetch-inc`,
+    `&prefix:<--⚛>`/`&atomic-dec-fetch`, `&postfix:<⚛-->`/`&atomic-fetch-dec`,
+    `&infix:<⚛-=>`/`&infix:<⚛−=>`/`&atomic-fetch-sub`,
+    and `&infix:<⚛+=>`/`&atomic-fetch-add`
+- `&cas`: atomic compare and swap
 - The `≤`, `≥`, and `≠` operators are Unicode operator
     alternatives to `<=`, `>=`, and `!=` respectively
 - `TR///`: non-mutating version of `tr///`
@@ -160,8 +169,9 @@ may choose to make them available even when an earlier language version is reque
 - `Str.parse-base`: inverse of `Int.base` operation
 - `IO::Path` provides `.ACCEPTS`, `.SPEC`, `.CWD`, `.Numeric`, `.add`,
     `.extension`, `.mode`, `.parts`, `.sibling`, and `.spurt`
-- `IO::Handle` provides `.DESTROY`, `.flush`, `.lock`, `.unlock`, `.tell`,
-    `.say`, `.slurp`, `.seek`, `.printf`, `.print-nl`, and `.watch`
+- `IO::Handle` provides `.DESTROY`, `.readchars`, `.flush`, `.lock`,
+    `.unlock`, `.tell`, `.say`, `.slurp`, `.seek`, `.printf`,
+    `.print-nl`, and `.watch`
 - `IO::Pipe` provides `.proc`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
@@ -170,7 +180,7 @@ may choose to make them available even when an earlier language version is reque
 - `bail-out` in Test.pm6 module: exit out of failing test suite
 - `is-approx` in Test.pm6 module: test a number is approximately like another
 - `Buf` has `.allocate`, `.reallocate`, `.append`, `.push`, `.pop`,
-    `.splice`, `.prepend`, and `.unshift` methods
+    `.splice`, `.subbuf-rw`, `.prepend`, and `.unshift` methods
 - `Range` supports `.rand`
 - `Backtrace` has methods `.map`, `.flat`, `.concise`, and `.summary`
 - `.classify-list` method is available on `Hash` types
@@ -206,6 +216,7 @@ may choose to make them available even when an earlier language version is reque
 
 #### New Types
 
+- `atomicint`: a native `int` sized to be usable with new atomic operators
 - `Encoding::Registry`:  manage available encodings
 - `Encoding::Encoder`: encoder for a specific encoding
 - `Encoding::Decoder`: decoder for a specific encoding
@@ -318,6 +329,7 @@ may choose to make them available even when an earlier language version is reque
 - `List.Capture` stringifies keys of any contained `Pair` objects
 - `&fail` with handled `Failure` argument marks it as unhandled
 - `use lib` accepts `IO::Path` objects
+- Anchors `^`, `^^`, `$`, and `$$` are valid in lookarounds
 
 #### Miscellaneous
 
