@@ -96,7 +96,8 @@ may choose to make them available even when an earlier language version is reque
 #### Math
 
 - [6.d] Native `num` types default to `0e0` instead of `NaN`
-- `Rational`s are always reduced on creation
+- `Rational`s are always reduced on creation and remain
+    immutable throughout their life
 - `-Inf`, `Inf`, and `NaN` can be round-tripped through `Rat` type
     by being represented as values `<-1/0>`, `<1/0>`, and `<0/0`>
     respectively. Zero-denominator `Rational`s are normalized to
@@ -132,8 +133,9 @@ may choose to make them available even when an earlier language version is reque
 - `.first` can take `:$kv`
 - `unique` and `.repeated` can take `:&as` and `:&with`
 - `&plan` in Test.pm6 can take `:skip-all`
-- `IO::Path.resolve` can take `:completely`
 - `&note` can be called with no arguments
+- `IO::Path.resolve` can take `:completely`
+- `Proc::Async.new` slurps positional arguments
 
 #### New Routines and Operators
 
@@ -161,7 +163,6 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Handle` provides `.DESTROY`, `.flush`, `.lock`, `.unlock`, `.tell`,
     `.say`, `.slurp`, `.seek`, `.printf`, `.print-nl`, and `.watch`
 - `IO::Pipe` provides `.proc`
-- `Proc::Async` provides `.ready`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
 - `Mu.emit`: method form of `&emit`
@@ -176,10 +177,12 @@ may choose to make them available even when an earlier language version is reque
 - `.categorize-list` method is available on `Hash` types
 - `Code.of`: returns the return type constraint
 - `Code.line`/`.file`: returns the line/file of definition
+- `Proc::Async` provides `.Supply`, `.ready`, `.bind-stdin`,
+    `.bind-stdout`, and `.bind-stderr`
 - XXX TODO: https://github.com/rakudo/rakudo/issues/2444
 - `Proc.command`/`Proc::Async.command`: the command we're executing
 - `Proc.signal`: the signal the process was killed with
-- `Complex` provides `.reals`, `.ceiling`, `.floor`, `.round`,
+- `Complex` provides `.cis`, `.reals`, `.ceiling`, `.floor`, `.round`,
     `.truncate`, and `.abs` methods and can be compared with `<=>` (as
     long as the imaginary part is negligible)
 - `DateTime` provides `.offset-in-hours`, `.hh-mm-ss` and `.Date`
@@ -198,9 +201,14 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Spec::*` types provide `.tmpdir`, `.extension`, and `.path`
 - `Pair` provides `.ACCEPTS`, `.Pair`, and `.invert`
 - `.Capture` method is well-defined for all core types
+- Defined semantics of `.ACCEPTS` on allomorphs
+- `Failure.self` explodes unhandled `Failure`s
 
 #### New Types
 
+- `Encoding::Registry`:  manage available encodings
+- `Encoding::Encoder`: encoder for a specific encoding
+- `Encoding::Decoder`: decoder for a specific encoding
 - `IO::CatHandle`: use multiple read-only `IO::Handle`s as if they were one
 - Native `str` arrays
 - `Supplier::Preserving`: cached live `Supply` factory
@@ -214,6 +222,9 @@ may choose to make them available even when an earlier language version is reque
 
 - `$*USAGE`: available inside `MAIN` subs and contains the auto-generated
   USAGE message
+- `%*SUB-MAIN-OPTS`: settings for behaviour of `sub MAIN`
+    - `%*SUB-MAIN-OPTS<named-anywhere>` allow named arguments to be
+        placed at any position on the command line
 - `$*COLLATION`: configures the four Unicode collation levels
 - `$*HOME`: user's home directory, if one exists
 - `&*chdir`: a `Callable` containing a variant of `IO::Path.chdir` that
@@ -300,10 +311,13 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Pipe`'s `.path`/`.IO` return an `IO::Path` type object
 - `IO::Path`'s `.copy`/`.move` `fail` if destination and original are the same
 - `dir`-created `IO::Path`s' absoluteness is controlled by the invocant
-- More defined edge-case behaviour, `Callable` handling, and chaining of
-    `&infix:<andthen>`, `&infix:<orelse>`, and `&infix:<notandthen>` operators
+- More-defined edge-case behaviour, `Callable` handling, `.defined` calling,
+    and chaining of `&infix:<andthen>`, `&infix:<orelse>`,
+    and `&infix:<notandthen>` operators
 - Zen slicing of `Seq`s does *not* cache them
 - `List.Capture` stringifies keys of any contained `Pair` objects
+- `&fail` with handled `Failure` argument marks it as unhandled
+- `use lib` accepts `IO::Path` objects
 
 #### Miscellaneous
 
@@ -338,6 +352,8 @@ These methods are deprecated in 6.d language and will be removed in 6.e.
 Implementations may choose to emit deprecation warnings or to offer these
 methods for a longer period than 6.e release.
 
+- The use of `'-'` (single hyphen) as a special path to `&open` to mean the
+    special handles (use `IO::Special` objects instead)
 - `IO::Handle.slurp-rest` (use `.slurp` instead)
 - `Any.flatmap` (use combination of `.flat` and `.map` methods instead)
 - `Cool.path` (use `.IO` instead)
