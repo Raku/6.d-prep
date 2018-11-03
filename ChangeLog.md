@@ -51,6 +51,8 @@ may choose to make them available even when an earlier language version is reque
 #### New Behaviors
 
 - [6.d] `&await` no longer blocks *a thread* while waiting
+- `QuantHash`es/`Map` in `%` variables and `List` in `@` variables
+    can be declared with `is` trait (e.g. `my %h is Set`)
 - New `<ww>` regex rule: match within word only
 - Loops can produce a list of values from the values of last statements
 - `next`/`last`/`redo` in a loop that collects its last statement values
@@ -96,10 +98,11 @@ may choose to make them available even when an earlier language version is reque
 - `is default` trait works with attributes
 - Parameters with `is rw` trait are considered narrower in multi dispatch
     than thouse without it
-- `.gist` of `Blob` and `Map` gets trimmed to 100 elements
+- `.gist` of `Array`, `Blob`, and `Map` gets trimmed to 100 elements
 - New `for` statement modifiers `hyper for`, `race for`, and `lazy for`
 - `for` loop automatically serializes `RaceSeq`/`HyperSeq`; use new `for`
     statement modifiers `hyper for`/`race for` to avoid
+- `&infix:<does>` can be used with non-composable instances on RHS
 
 #### Math
 
@@ -359,6 +362,10 @@ may choose to make them available even when an earlier language version is reque
 - `Promise.in`/`.at` and `Supply.interval` work with zero and negative values
 - `Supply.interval` minimum value is `0.001`; lower values are
     treated as `0.001` and emit warnings
+- `Supply` provides `.Seq`, `.list`, and `.zip`
+- Can bind to native type attributes in build methods
+- `WhateverCode` propagates `use fatal`
+- `say`, `note`, `put`, `print`, and `printf` routines autothread `Junction`s
 
 #### Miscellaneous
 
@@ -386,6 +393,7 @@ may choose to make them available even when an earlier language version is reque
 - [6.d] On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is
     reserved, in anticipation of possible future use.
 - Expanded specification coverage of Unicode routines and features - Upgraded coverage to Unicode version 11
+- `$.` method call syntax shorthand works with meta-methods
 
 ## Deprecations
 
