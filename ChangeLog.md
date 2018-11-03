@@ -64,7 +64,7 @@ may choose to make them available even when an earlier language version is reque
 - Numerous improvements to auto-generated `USAGE` message
 - `Parameter.perl` includes introspectable defaults
 - `%*ENV` values are allomorphic
-- Trying to use variables `$;`, `$,`, `$.`, `$%`, `$\`, `$#`, `$(`, `$)`,
+- Trying to use variables `$;`, `$,`, `$.`, `$\`, `$(`, `$)`,
     `$<`, `$>`, `$/`, `$\`, `$[`, `$-`, `$+`, and `$@`
     throws `X::Syntax::Perl5Var`
 - Default `Hash.of` returns a `Str(Any)` coercer type object
@@ -105,6 +105,8 @@ may choose to make them available even when an earlier language version is reque
     statement modifiers `hyper for`/`race for` to avoid
 - `&infix:<does>` can be used with non-composable instances on RHS
 - Numeric comparators can be used with `DateTime` objects
+- `Pod` preserves the type of whitespace
+- Defined semantics for `@`-, `%`- and `&`-sigilled `constant`s
 
 #### Math
 
@@ -156,6 +158,9 @@ may choose to make them available even when an earlier language version is reque
 - `Signature.ACCEPTS` accepts non-`Signature`/`Capture` arguments
 - `&EVAL` can take a `Blob`
 - `Promise.keep`/`.break` can be called with no arguments
+- `.sum` on native arrays can take `:wrap`
+- `is required` trait can now take an argument indicating reason
+- `IO::Socket::Async.listen` can bind to port `0` to ask OS for a free port
 
 #### New Routines and Operators
 
@@ -190,9 +195,9 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Path` provides `.ACCEPTS`, `.SPEC`, `.CWD`, `.Numeric`, `.add`,
     `.extension`, `.mode` and numerious file tests, `.parts`,
     `.sibling`, and `.spurt`
-- `IO::Handle` provides `.DESTROY`, `.readchars`, `.flush`, `.lock`,
-    `.unlock`, `.out-buffer`, `.tell`, `.say`, `.slurp`, `.seek`, `.printf`,
-    `.print-nl`, and `.watch`
+- `IO::Handle` provides `.READ`, `.WRITE`, `.EOF`, `.DESTROY`,
+    `.readchars`, `.flush`, `.lock`, `.unlock`, `.out-buffer`, `.tell`,
+    `.say`, `.slurp`, `.seek`, `.printf`, `.print-nl`, and `.watch`
 - `IO::Pipe` provides `.proc`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
@@ -238,6 +243,7 @@ may choose to make them available even when an earlier language version is reque
 - `Match` provides `.Int` and `.actions`
 - `IO::Socket::Async` provides `.socket-port` and `.peer-port`
 - `Promise` provides alternative constructors `.kept` and `.broken`
+- `WhateverCode` provides `.assuming`
 
 #### New Types
 
@@ -272,6 +278,8 @@ may choose to make them available even when an earlier language version is reque
 
 #### Clarifications of Edge Case/Coercion Behaviour
 
+- [6.d] Routines must use `return-rw` to return a `Proxy`, even if routine is
+    marked as `is raw` or `is rw`
 - `UInt` smartmatches `True` with `Int` type object
 - `sink` statement prefix explodes `Failure`s
 - Defined behaviour of `permutations`/`combinations` on 1- and 0-item
@@ -378,6 +386,7 @@ may choose to make them available even when an earlier language version is reque
 - `say`/`note` guaranteed to call `.gist` on subclasses of `Str`
 - Defined `Junction.Str` returns a `Junction`
 - Defined `Junction.gist`/`.perl` return a `Str`
+- `Map`/`Hash`'s `.list`/`.cache` return a `List`
 
 #### Miscellaneous
 
