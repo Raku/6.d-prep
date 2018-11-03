@@ -127,6 +127,8 @@ may choose to make them available even when an earlier language version is reque
 - `Date.new` accepts a `:&formatter`
 - `.first` can take `:$kv`
 - `unique` and `.repeated` can take `:&as` and `:&with`
+- `&plan` in Test.pm6 can take `:skip-all`
+- `IO::Path.resolve` can take `:completely`
 
 #### New Routines and Operators
 
@@ -139,16 +141,19 @@ may choose to make them available even when an earlier language version is reque
 - `&deepmap`: apply `&callable` on each element, descending into `Iterable`s
 - `&take-rw`: like `&take` but with a writable container
 - `&indir`: execute code in a given `$*CWD`
+- `&spurt`: see `IO::Path.spurt`
 - `uniprops`: multi-character version of `uniprop`
+- `symlink`: create a file symlink
+- `link`: create a file hardlink
 - `.hyper`/`.race`: process a list of values in parallel
 - `Seq.from-loop`: generate a `Seq` from a `Callable`
 - `Str.uniparse`: parse one or more Unicode character names into
     the actual characters
 - `Str.parse-base`: inverse of `Int.base` operation
-- `IO::Path.add`: new name for `.child`; adding non-child paths explicitly allowed
-- `IO::Path.sibling`: allows to reference a sibling file or directory
-- `IO::Path.mode`: retrieve file mode
-- `IO::Handle` provides `.slurp`, `.seek`, and `.printf`
+- `IO::Path` provides `.ACCEPTS`, `.add`, `.extension`,
+    `.mode`, `.sibling`, and `.spurt`
+- `IO::Handle` provides `.lock`, `.unlock`, `.tell`,
+    `.slurp`, `.seek`, and `.printf`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
 - `Mu.emit`: method form of `&emit`
@@ -182,6 +187,7 @@ may choose to make them available even when an earlier language version is reque
 - `Any.skip`: skip values in a list
 - `Any.batch`: more basic cousin of `.rotor`
 - `Mu.iterator`: produce an `Iterator` for values in a list
+- `IO::Spec::*` types provide `.tmpdir`
 
 #### New Types
 
@@ -189,6 +195,7 @@ may choose to make them available even when an earlier language version is reque
 - Native `str` arrays
 - `Supplier::Preserving`: cached live `Supply` factory
 - `Semaphore`: control access to shared resources by multiple processes
+- `IO::Special`: a path to special I/O device (e.g. `STDOUT`)
 - `Exceptions::JSON` an implementation of custom exceptions handler
     (can be used with `PERL6_EXCEPTIONS_HANDLER` env var)
 - `SeekType` enum: values for use in `IO::Handle.seek`
@@ -198,6 +205,8 @@ may choose to make them available even when an earlier language version is reque
 - `$*USAGE`: available inside `MAIN` subs and contains the auto-generated
   USAGE message
 - `$*COLLATION`: configures the four Unicode collation levels
+- `&*chdir`: a `Callable` containing a variant of `IO::Path.chdir` that
+    also sets process's current directory
 - `PERL6_TEST_DIE_ON_FAIL` environmental variable: stop test
     suite on first failure
 
@@ -274,6 +283,9 @@ may choose to make them available even when an earlier language version is reque
 - `&infix:<∘>`/`&infix:<o>` keep LHF's `.of` and RHS's `.arity` and `.count`
 - Refined accepted arguments in regex operator adverbs (e.g. `:in(…)`)
 - Refined accepted combinations of arguments in `IO::Handle.open`
+- `IO::Path.Str` does not include the value of `.CWD` attribute
+- `IO::Path` type rejects paths with the `nul` byte (`"\0"`) in them
+- `IO::Pipe`'s `.path`/`.IO` return an `IO::Path` type object
 
 #### Miscellaneous
 
