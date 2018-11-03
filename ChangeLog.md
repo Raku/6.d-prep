@@ -86,10 +86,13 @@ may choose to make them available even when an earlier language version is reque
 - `:nth` adverb on `m//` accepts a `Junction` as argument
 - `CX::Warn` and `CX::Done` can be caught inside `CONTROL` phaser
 - `next` can be used in `whenever`
+- `require`'d symbols no longer transitively exposed
+- Multi-dimensional access via `{…}`, similar to how it works with `[…]`
 
 #### Math
 
 - [6.d] Native `num` types default to `0e0` instead of `NaN`
+- `Rational`s are always reduced on creation
 - `-Inf`, `Inf`, and `NaN` can be round-tripped through `Rat` type
     by being represented as values `<-1/0>`, `<1/0>`, and `<0/0`>
     respectively. Zero-denominator `Rational`s are normalized to
@@ -127,6 +130,8 @@ may choose to make them available even when an earlier language version is reque
 
 #### New Routines and Operators
 
+- The `≤`, `≥`, and `≠` operators are Unicode operator
+    alternatives to `<=`, `>=`, and `!=` respectively
 - `TR///`: non-mutating version of `tr///`
 - `submethod TWEAK`: similar to `BUILD` except runs after defaults has been set
 - `&duckmap`: apply `&callable` on each element that behaves in such a way
@@ -180,10 +185,10 @@ may choose to make them available even when an earlier language version is reque
 
 #### New Types
 
-- `IO::CatHandle`: use multiple read-only IO handles as if they were one
+- `IO::CatHandle`: use multiple read-only `IO::Handle`s as if they were one
 - Native `str` arrays
+- `Supplier::Preserving`: cached live `Supply` factory
 - `Semaphore`: control access to shared resources by multiple processes
-- `UInt` a subset of `Int` containing non-negative numbers
 - `Exceptions::JSON` an implementation of custom exceptions handler
     (can be used with `PERL6_EXCEPTIONS_HANDLER` env var)
 - `SeekType` enum: values for use in `IO::Handle.seek`
@@ -245,6 +250,7 @@ may choose to make them available even when an earlier language version is reque
 - Reduce with `&infix:<+>` with one item simply returns that item
 - `()[0]` returns `Nil`
 - Regex smartmatching is allowed on (possibly-infinite) `Seq`
+- Defined smartmatching with `Range` objects
 - `Set` converted to a `Mix`/`Bag` no longer has `Bool` weights
 - `gcd` is defined when one or more operands are `0`
 - `Junction`s autothread in `defined` routine
@@ -261,6 +267,13 @@ may choose to make them available even when an earlier language version is reque
 - Return type of `.sort` is always `Seq`
 - Out-of-range `.AT-POS` on `Range` objects returns `Nil`
 - `Pair.AT-KEY` for non-existent key returns `Nil`
+- All `Cool` types provide `.Rat`/`.FatRat` coercers
+- `IO::Path` filetests do not cache results of earlier test executions
+- `Seq` eqv `List` as `False` based on type mismatch alone
+- On arrays, values from `.values` and `.pairs` sequences are writable
+- `&infix:<∘>`/`&infix:<o>` keep LHF's `.of` and RHS's `.arity` and `.count`
+- Refined accepted arguments in regex operator adverbs (e.g. `:in(…)`)
+- Refined accepted combinations of arguments in `IO::Handle.open`
 
 #### Miscellaneous
 
