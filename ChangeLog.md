@@ -88,6 +88,9 @@ may choose to make them available even when an earlier language version is reque
 - `next` can be used in `whenever`
 - `require`'d symbols no longer transitively exposed
 - Multi-dimensional access via `{…}`, similar to how it works with `[…]`
+- Any open handles at `END` time get automatically closed
+- On a cached `Seq`, the cached list is used when `&infix:<eqv>`, `.Slip`,
+    `.join`, `.List`, `.list`, `.eager`, `.Array` and `.is-lazy` are called
 
 #### Math
 
@@ -129,6 +132,7 @@ may choose to make them available even when an earlier language version is reque
 - `unique` and `.repeated` can take `:&as` and `:&with`
 - `&plan` in Test.pm6 can take `:skip-all`
 - `IO::Path.resolve` can take `:completely`
+- `&note` and `&prompt` can be called with no arguments
 
 #### New Routines and Operators
 
@@ -151,8 +155,8 @@ may choose to make them available even when an earlier language version is reque
     the actual characters
 - `Str.parse-base`: inverse of `Int.base` operation
 - `IO::Path` provides `.ACCEPTS`, `.add`, `.extension`,
-    `.mode`, `.sibling`, and `.spurt`
-- `IO::Handle` provides `.lock`, `.unlock`, `.tell`,
+    `.mode`, `.parts`, `.sibling`, and `.spurt`
+- `IO::Handle` provides `.DESTROY`, `.flush`, `.lock`, `.unlock`, `.tell`,
     `.slurp`, `.seek`, and `.printf`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
@@ -187,7 +191,9 @@ may choose to make them available even when an earlier language version is reque
 - `Any.skip`: skip values in a list
 - `Any.batch`: more basic cousin of `.rotor`
 - `Mu.iterator`: produce an `Iterator` for values in a list
-- `IO::Spec::*` types provide `.tmpdir`
+- `IO::Spec::*` types provide `.tmpdir` and `.extension`
+- `Pair` provides `.Pair` and `.ACCEPTS`
+- `.Capture` method is well-defined for all core types
 
 #### New Types
 
@@ -205,6 +211,7 @@ may choose to make them available even when an earlier language version is reque
 - `$*USAGE`: available inside `MAIN` subs and contains the auto-generated
   USAGE message
 - `$*COLLATION`: configures the four Unicode collation levels
+- `$*HOME`: user's home directory, if one exists
 - `&*chdir`: a `Callable` containing a variant of `IO::Path.chdir` that
     also sets process's current directory
 - `PERL6_TEST_DIE_ON_FAIL` environmental variable: stop test
@@ -286,6 +293,11 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Path.Str` does not include the value of `.CWD` attribute
 - `IO::Path` type rejects paths with the `nul` byte (`"\0"`) in them
 - `IO::Pipe`'s `.path`/`.IO` return an `IO::Path` type object
+- `IO::Path`'s `.copy`/`.move` `fail` if destination and original are the same
+- `dir`-created `IO::Path`s' absoluteness is controlled by the invocant
+- More defined edge-case behaviour, `Callable` handling, and chaining of
+    `&infix:<andthen>`, `&infix:<orelse>`, and `&infix:<notandthen>` operators
+- Zen slicing of `Seq`s does *not* cache them
 
 #### Miscellaneous
 
