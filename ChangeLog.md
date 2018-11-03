@@ -1,28 +1,9 @@
-```
-##################################################################################
-##################################################################################
-##################################################################################
-###
-### NOTE: this is an "internal", core dev only file that is a work in
-###       progress. It is likely INCOMPLETE and INACCURATE. To avoid
-###       confusion, please do not distribute this file to users as
-###       an indication of upcoming language changes.
-###       
-###       If you are a user reading this, you probably should not modify
-###       your code based on this file, until a user copy without this
-###       notice is publicized. This will avoid unnecessary or inaccurate changes.
-###       
-###
-##################################################################################
-##################################################################################
-##################################################################################
-```
-
 # Introduction
 
-This document lists changes in Perl 6.d (Diwali) language from Perl 6.c (Christmas)
-version. A particular implementation of the language may contain additional
-changes; please consult with the changelog for your implementation.
+This document lists changes in Perl 6.d (Diwali) language
+from Perl 6.c (Christmas) version. A particular implementation of the language
+may contain additional changes; please consult with the changelog for your
+implementation.
 
 At the same time, a particular implementation may have had certain features
 already implemented during 6.c version period. This ChangeLog concerns itself
@@ -41,22 +22,31 @@ tests.
 ## Additions
 
 These are new features that did not exist in 6.c language. For details about
-them, please consult with documentation https://docs.perl6.org/
+them, please consult with the documentation on https://docs.perl6.org/
 
-Items marked with `[6.d]` are protected by version pragma and older behaviours
-can be obtained by explicitly using `use v6.c` to request an older language version.
-All other changes do not conflict with the 6.c language version and implementations
-may choose to make them available even when an earlier language version is requested.
+Items in `Requiring v6.d` section are protected by version pragma and older
+behaviours can be obtained by explicitly using `use v6.c` to request an older
+language version. All other changes do not conflict with the 6.c language
+version and implementations may choose to make them available even when an
+earlier language version is requested.
+
+#### Requiring v6.d
+
+- **[6.d]** `&await` no longer blocks *a thread* while waiting
+- **[6.d]** `whenever` not in lexical scope of `react` throws
+- **[6.d]** `$*ARGFILES` inside `sub MAIN` is always fed by `$*IN`
+- **[6.d]** Constructs (literally) `$()`, `@()`, and `%()` are no longer magical
+- **[6.d]** variables with `:D`/`:U` type constraints default to type object of
+    the constrained type (e.g. so you could use `.new` with them)
+- **[6.d]** `start` blocks in sink context attach exception handler
+- **[6.d]** Routines must use `return-rw` to return a `Proxy`, even if
+    routine is marked as `is raw` or `is rw`
+- **[6.d]** Native `num` types default to `0e0` instead of `NaN`
+- **[6.d]** On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`)
+    is reserved, in anticipation of possible future use.
 
 #### New Behaviors
 
-- [6.d] `&await` no longer blocks *a thread* while waiting
-- [6.d] `whenever` not in lexical scope of `react` throws
-- [6.d]  `$*ARGFILES` inside `sub MAIN` is always fed by `$*IN`
-- [6.d] Constructs (literally) `$()`, `@()`, and `%()` are no longer magical
-- [6.d] variables with `:D`/`:U` type constraints default to type object of
-    the constrained type (e.g. so you could use `.new` with them)
-- [6.d] `start` blocks in sink context attach exception handler
 - Improved custom handling of `sub MAIN` via new definable `&RUN-MAIN`,
     `&ARGS-TO-CAPTURE`, and `&GENERATE-USAGE` subs
 - `QuantHash`es/`Map` in `%` variables and `List` in `@` variables
@@ -119,7 +109,6 @@ may choose to make them available even when an earlier language version is reque
 
 #### Math
 
-- [6.d] Native `num` types default to `0e0` instead of `NaN`
 - `Rational`s are always reduced on creation and remain
     immutable throughout their life
 - `-Inf`, `Inf`, and `NaN` can be round-tripped through `Rat` type
@@ -139,11 +128,15 @@ may choose to make them available even when an earlier language version is reque
 
 - Set operators can be used on any object and will be coerced when needed
   - So no pre-coercion is needed or wanted
-  - Set operators are at liberty to not create any QuantHash if they can perform the desired functionality without them
-- Set operations on different types of QuantHashes will coerce to the most liberal form (Set -> Bag -> Mix)
-- The set_precedes family of set operators ( `(<+)`, `≼`, `(>+)`, `≽`) has been removed
+  - Set operators are at liberty to not create any QuantHash if they can
+    perform the desired functionality without them
+- Set operations on different types of QuantHashes will coerce to the
+    most liberal form (Set -> Bag -> Mix)
+- The set_precedes family of set operators ( `(<+)`, `≼`, `(>+)`, `≽`) has
+    been removed
   - Used to be a Baggy form of the subset operator
-  - QuantHashes are upgraded to their most liberal form, so `(<=)`, `⊆`, `(>=)`, `⊇` do the right thing
+  - QuantHashes are upgraded to their most liberal form,
+    so `(<=)`, `⊆`, `(>=)`, `⊇` do the right thing
 - `.classify-list` method is available on `Baggy` types
 - `.categorize-list` method is available on `Baggy` types
 - `.invert` method is available on core `QuantHash` types
@@ -294,8 +287,6 @@ may choose to make them available even when an earlier language version is reque
 
 #### Clarifications of Edge Case/Coercion Behaviour
 
-- [6.d] Routines must use `return-rw` to return a `Proxy`, even if routine is
-    marked as `is raw` or `is rw`
 - `UInt` smartmatches `True` with `Int` type object
 - `sink` statement prefix explodes `Failure`s
 - Defined behaviour of `permutations`/`combinations` on 1- and 0-item
@@ -409,8 +400,6 @@ may choose to make them available even when an earlier language version is reque
 
 #### Miscellaneous
 
-- [6.d] On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is
-    reserved, in anticipation of possible future use.
 - The `IO::ArgFiles` type is just an empty subclass of `IO::CatHandle`
 - Constraints on constants
     - Constraints are fully enforced
