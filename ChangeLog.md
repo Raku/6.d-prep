@@ -50,6 +50,7 @@ may choose to make them available even when an earlier language version is reque
 
 #### New Behaviors
 
+- [6.d] `&await` no longer blocks *a thread* while waiting
 - Loops can produce a list of values from the values of last statements
 - `next`/`last`/`redo` in a loop that collects its last statement values
     return `Empty` for the iterations they run on
@@ -84,13 +85,15 @@ may choose to make them available even when an earlier language version is reque
     a `Mixy` to `Setty`/`Baggy`
 - `:nth` adverb on `m//` accepts a `Junction` as argument
 - `CX::Warn` and `CX::Done` can be caught inside `CONTROL` phaser
+- `next` can be used in `whenever`
 
 #### Math
 
 - [6.d] Native `num` types default to `0e0` instead of `NaN`
 - `-Inf`, `Inf`, and `NaN` can be round-tripped through `Rat` type
-    by being represented as values `<-1/0>`, `<1/0>`, and `<0/0`> respectively.
-    Zero-denominator `Rational`s are normalized to one of those three values
+    by being represented as values `<-1/0>`, `<1/0>`, and `<0/0`>
+    respectively. Zero-denominator `Rational`s are normalized to
+    one of those three values
 - Calling `.Int` on ±`Inf` and `NaN` throws
 - Improved IEEE 754-2008 compliance in `Num` operators and math functions
 - Negative zero `Num` (`-0e0`) gets correctly
@@ -129,7 +132,8 @@ may choose to make them available even when an earlier language version is reque
 - `&duckmap`: apply `&callable` on each element that behaves in such a way
     that `&callable` can be applied
 - `&deepmap`: apply `&callable` on each element, descending into `Iterable`s
-- `&take-rw` like `&take` but with a writable container
+- `&take-rw`: like `&take` but with a writable container
+- `&indir`: execute code in a given `$*CWD`
 - `uniprops`: multi-character version of `uniprop`
 - `.hyper`/`.race`: process a list of values in parallel
 - `Seq.from-loop`: generate a `Seq` from a `Callable`
@@ -139,7 +143,7 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Path.add`: new name for `.child`; adding non-child paths explicitly allowed
 - `IO::Path.sibling`: allows to reference a sibling file or directory
 - `IO::Path.mode`: retrieve file mode
-- `IO::Handle` provides `.slurp` and `.printf`
+- `IO::Handle` provides `.slurp`, `.seek`, and `.printf`
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
 - `Mu.emit`: method form of `&emit`
@@ -157,20 +161,22 @@ may choose to make them available even when an earlier language version is reque
 - XXX TODO: https://github.com/rakudo/rakudo/issues/2444
 - `Proc.command`/`Proc::Async.command`: the command we're executing
 - `Proc.signal`: the signal the process was killed with
-- `Complex` type provides `.reals`, `.ceiling`, `.floor`, `.round`,
+- `Complex` provides `.reals`, `.ceiling`, `.floor`, `.round`,
     `.truncate`, and `.abs` methods and can be compared with `<=>` (as
     long as the imaginary part is negligible)
-- `DateTime` type provides `.offset-in-hours`, `.hh-mm-ss`
-    and `.Date` and can be compared with other `DateTime`
-    objects using `<=>` operator
+- `DateTime` provides `.offset-in-hours`, `.hh-mm-ss` and `.Date`
+- `DateTime` can be compared with other `DateTime` objects using `<=>` operator
 - `Date` provides `.DateTime` method
-- `&infix:<+>`/`&infix:<->` can be called with `Duration` and `Real` types
+- `&infix:<+>`/`&infix:<->` can be called with `Duration`, `DateTime`,
+    and `Real` types
 - `Enumeration` provides `.kv`, `.pair`, and `.Int` methods
 - `.Date` can be called on an `Instant`
 - Junctions can be created using `Junction.new` call
 - `List` type has `.to` and `.from` methods
 - `Map` type provides `Int` method, returning the number of pairs
-- `Map` provides `.clone`
+- `Any.skip`: skip values in a list
+- `Any.batch`: more basic cousin of `.rotor`
+- `Mu.iterator`: produce an `Iterator` for values in a list
 
 #### New Types
 
@@ -180,6 +186,7 @@ may choose to make them available even when an earlier language version is reque
 - `UInt` a subset of `Int` containing non-negative numbers
 - `Exceptions::JSON` an implementation of custom exceptions handler
     (can be used with `PERL6_EXCEPTIONS_HANDLER` env var)
+- `SeekType` enum: values for use in `IO::Handle.seek`
 
 #### New Variables
 
@@ -196,7 +203,7 @@ may choose to make them available even when an earlier language version is reque
 - Defined behaviour of `permutations`/`combinations` on 1- and 0-item
     lists and negative and non-Int arguments
 - `val`, `Str.Numeric`, and other `Str` numeric conversion methods
-    throw when trying to convert Unicode `No` character
+    `fail` when trying to convert Unicode `No` character
     group or synthetic numerics
 - Synthetic numerics cannot be used in `:42foo` colonpair shortcut
 - An `Enumeration` can now be used as a array shape specifier
@@ -250,6 +257,10 @@ may choose to make them available even when an earlier language version is reque
     treated as `0.001` and emit warnings
 - All `Numeric` literals are supported as value literals in signature
 - `\b` and `\B` in regexes throw `X::Obsolete`
+- `True` and `False` as value literals in signatures warn
+- Return type of `.sort` is always `Seq`
+- Out-of-range `.AT-POS` on `Range` objects returns `Nil`
+- `Pair.AT-KEY` for non-existent key returns `Nil`
 
 #### Miscellaneous
 
@@ -276,8 +287,7 @@ may choose to make them available even when an earlier language version is reque
 - Literal constructs `put` and `put for` throw, requiring use of parentheses
 - [6.d] On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is
     reserved, in anticipation of possible future use.
-- Expanded specification coverage of Unicode routines and features
-- Upgraded coverage to Unicode version 11
+- Expanded specification coverage of Unicode routines and features - Upgraded coverage to Unicode version 11
 
 ## Deprecations
 
