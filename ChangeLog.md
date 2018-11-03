@@ -1,4 +1,6 @@
-# Introduction
+# Raku Perl 6.d (Diwali) Specification ChangeLog
+
+## Introduction
 
 This document lists changes in Perl 6.d (Diwali) language
 from Perl 6.c (Christmas) version. A particular implementation of the language
@@ -10,7 +12,7 @@ already implemented during 6.c version period. This ChangeLog concerns itself
 with new features added to the specification on a language level and not
 the status of their implementation in a particular compiler.
 
-# Scope / Target Audience
+## Scope / Target Audience
 
 This ChangeLog is targeted towards language users, to help with preparation
 to use compilers supporting latest language version. Thus, it does not
