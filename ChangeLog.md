@@ -52,6 +52,13 @@ may choose to make them available even when an earlier language version is reque
 
 - [6.d] `&await` no longer blocks *a thread* while waiting
 - [6.d] `whenever` not in lexical scope of `react` throws
+- [6.d]  `$*ARGFILES` inside `sub MAIN` is always fed by `$*IN`
+- [6.d] Constructs (literally) `$()`, `@()`, and `%()` are no longer magical
+- [6.d] variables with `:D`/`:U` type constraints default to type object of
+    the constrained type (e.g. so you could use `.new` with them)
+- [6.d] `start` blocks in sink context attach exception handler
+- Improved custom handling of `sub MAIN` via new definable `&RUN-MAIN`,
+    `&ARGS-TO-CAPTURE`, and `&GENERATE-USAGE` subs
 - `QuantHash`es/`Map` in `%` variables and `List` in `@` variables
     can be declared with `is` trait (e.g. `my %h is Set`)
 - New `<ww>` regex rule: match within word only
@@ -62,6 +69,8 @@ may choose to make them available even when an earlier language version is reque
     `Date`, and `CallFrame`
 - `.gist` can be called on `Attribute`
 - Numerous improvements to auto-generated `USAGE` message
+- `is hidden-from-USAGE` trait to hide `sub MAIN` candidates from
+    auto-generated `USAGE` message
 - `Parameter.perl` includes introspectable defaults
 - `%*ENV` values are allomorphic
 - Trying to use variables `$;`, `$,`, `$.`, `$\`, `$(`, `$)`,
@@ -161,6 +170,7 @@ may choose to make them available even when an earlier language version is reque
 - `.sum` on native arrays can take `:wrap`
 - `is required` trait can now take an argument indicating reason
 - `IO::Socket::Async.listen` can bind to port `0` to ask OS for a free port
+- `.encode` can take `:translate-nl`
 
 #### New Routines and Operators
 
@@ -244,6 +254,10 @@ may choose to make them available even when an earlier language version is reque
 - `IO::Socket::Async` provides `.socket-port` and `.peer-port`
 - `Promise` provides alternative constructors `.kept` and `.broken`
 - `WhateverCode` provides `.assuming`
+- `WhateverCode` and `Block` provide `.cando`
+- `.:<…>` syntax for calling prefix operators as postfixes
+- `$*KERNEL` provides `.hostname`
+- `Nil` has `.FALLBACK` special method defined to return `Nil`
 
 #### New Types
 
@@ -275,6 +289,8 @@ may choose to make them available even when an earlier language version is reque
     also sets process's current directory
 - `PERL6_TEST_DIE_ON_FAIL` environmental variable: stop test
     suite on first failure
+- `PERL6_EXCEPTIONS_HANDLER` environmental variable: specify custom
+    exceptions handler class
 
 #### Clarifications of Edge Case/Coercion Behaviour
 
@@ -303,6 +319,7 @@ may choose to make them available even when an earlier language version is reque
 - `splice` can be used to extend an array
 - `classify` works with `Junction`s
 - `.pairup` on a type object returns an empty `Seq`
+- `.pairup` always returns a `Seq`
 - Synthetic codepoints are rejected from `Date`/`DateTime` constructors
 - `⸨`/`⸩` pair can now be used as matching characters in quoting constructs
 - `.flat` on `Array` type object simply returns that type object
@@ -387,16 +404,21 @@ may choose to make them available even when an earlier language version is reque
 - Defined `Junction.Str` returns a `Junction`
 - Defined `Junction.gist`/`.perl` return a `Str`
 - `Map`/`Hash`'s `.list`/`.cache` return a `List`
+- Defined `.round`'s return type
+- Defined `Enumeration:D` not does `.ACCEPT` an `Enumeration:U`
 
 #### Miscellaneous
 
+- [6.d] On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is
+    reserved, in anticipation of possible future use.
 - The `IO::ArgFiles` type is just an empty subclass of `IO::CatHandle`
 - Constraints on constants
     - Constraints are fully enforced
     - Attempting to parametarized type constraints on constants
         (i.e. using `my Foo constant @int`) throws `X::ParametricConstant` exception
 - Native `num` variables default to `0e0` instead of `NaN`
-- Pod `=defn` (definition list) directive is available
+- `Pod` `=defn` (definition list) directive is available
+- `Pod` provides `:numbered` config key
 - `.^ver`, `.^auth`, and `.^name` metamethods are available on `module`
     and are absent on a `package`, by design
 - Fancy quotes (`’…’`, `“…”`, `｢…｣`, and variants) are supported in `qww<…>`
@@ -411,8 +433,6 @@ may choose to make them available even when an earlier language version is reque
 - Type coerces can be used in signature return type constraints
 - `&infix:<x>`/`&infix:<x>` throw with `-Inf`/`NaN` repeat arguments
 - Literal constructs `put` and `put for` throw, requiring use of parentheses
-- [6.d] On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`) is
-    reserved, in anticipation of possible future use.
 - Expanded specification coverage of Unicode routines and features - Upgraded coverage to Unicode version 11
 - `$.` method call syntax shorthand works with meta-methods
 
