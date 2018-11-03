@@ -1,4 +1,24 @@
-# Raku Perl 6.d (Diwali) Specification ChangeLog
+ ```
+ ##################################################################################
+ ##################################################################################
+ ##################################################################################
+ ###
+ ### NOTE: this is an "internal", core dev only file that is a work in
+ ###       progress. It is likely INCOMPLETE and INACCURATE. To avoid
+ ###       confusion, please do not distribute this file to users as
+ ###       an indication of upcoming language changes.
+ ###       
+ ###       If you are a user reading this, you probably should not modify
+ ###       your code based on this file, until a user copy without this
+ ###       notice is publicized. This will avoid unnecessary or inaccurate changes.
+ ###       
+ ###
+ ##################################################################################
+ ##################################################################################
+ ##################################################################################
+ ```
+
+ # Raku Perl 6.d (Diwali) Specification ChangeLog
 
 ## Table of Contents
 - [Introduction](#introduction)
