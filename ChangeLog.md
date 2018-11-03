@@ -1,5 +1,22 @@
 # Raku Perl 6.d (Diwali) Specification ChangeLog
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Scope / Target Audience](#scope--target-audience)
+- [Additions](#additions)
+    - [Requiring v6.d](#requiring-v6d)
+    - [New Behaviors](#new-behaviors)
+    - [Math](#math)
+    - [Sets, Bags, Mixes (aka QuantHashes) and set operators](#sets-bags-mixes-aka-quanthashes-and-set-operators)
+    - [New Parameters and Arguments](#new-parameters-and-arguments)
+    - [New Routines and Operators](#new-routines-and-operators)
+    - [New Types](#new-types)
+    - [New Variables](#new-variables)
+    - [Clarifications of Edge Case/Coercion Behaviour](#clarifications-of-edge-casecoercion-behaviour)
+    - [Miscellaneous](#miscellaneous)
+- [Deprecations](#deprecations)
+- [Removals](#removals)
+
 ## Introduction
 
 This document lists changes in Perl 6.d (Diwali) language
