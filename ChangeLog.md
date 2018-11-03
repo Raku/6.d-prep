@@ -51,6 +51,7 @@ may choose to make them available even when an earlier language version is reque
 #### New Behaviors
 
 - [6.d] `&await` no longer blocks *a thread* while waiting
+- New `<ww>` regex rule: match within word only
 - Loops can produce a list of values from the values of last statements
 - `next`/`last`/`redo` in a loop that collects its last statement values
     return `Empty` for the iterations they run on
@@ -92,6 +93,10 @@ may choose to make them available even when an earlier language version is reque
 - On a cached `Seq`, the cached list is used when `&infix:<eqv>`, `.Slip`,
     `.join`, `.List`, `.list`, `.eager`, `.Array` and `.is-lazy` are called
 - `IO::Handle.encoding` takes `Nil` to indicate switch to binary mode
+- `is default` trait works with attributes
+- Parameters with `is rw` trait are considered narrower in multi dispatch
+    than thouse without it
+- `.gist` of `Blob` and `Map` gets trimmed to 100 elements
 
 #### Math
 
@@ -137,6 +142,7 @@ may choose to make them available even when an earlier language version is reque
 - `&note` can be called with no arguments
 - `IO::Path.resolve` can take `:completely`
 - `Proc::Async.new` slurps positional arguments
+- `&EVAL` can take a `Blob`
 
 #### New Routines and Operators
 
@@ -150,6 +156,7 @@ may choose to make them available even when an earlier language version is reque
 - `&cas`: atomic compare and swap
 - The `≤`, `≥`, and `≠` operators are Unicode operator
     alternatives to `<=`, `>=`, and `!=` respectively
+- `&infix:<unicmp>`/`&infix:<coll>`: alternative behavior of `&infix:<cmp>`
 - `TR///`: non-mutating version of `tr///`
 - `submethod TWEAK`: similar to `BUILD` except runs after defaults has been set
 - `&duckmap`: apply `&callable` on each element that behaves in such a way
@@ -168,7 +175,8 @@ may choose to make them available even when an earlier language version is reque
     the actual characters
 - `Str.parse-base`: inverse of `Int.base` operation
 - `IO::Path` provides `.ACCEPTS`, `.SPEC`, `.CWD`, `.Numeric`, `.add`,
-    `.extension`, `.mode`, `.parts`, `.sibling`, and `.spurt`
+    `.extension`, `.mode` and numerious file tests, `.parts`,
+    `.sibling`, and `.spurt`
 - `IO::Handle` provides `.DESTROY`, `.readchars`, `.flush`, `.lock`,
     `.unlock`, `.tell`, `.say`, `.slurp`, `.seek`, `.printf`,
     `.print-nl`, and `.watch`
@@ -200,7 +208,7 @@ may choose to make them available even when an earlier language version is reque
 - `Date` provides `.DateTime` method
 - `&infix:<+>`/`&infix:<->` can be called with `Duration`, `DateTime`,
     and `Real` types
-- `Enumeration` provides `.kv`, `.pair`, and `.Int` methods
+- `Enumeration` provides `.Int`, `.pred`, `.succ`, `.kv`, `.pair`, and methods
 - `.Date` can be called on an `Instant`
 - Junctions can be created using `Junction.new` call
 - `List` type has `.to` and `.from` methods
@@ -213,10 +221,14 @@ may choose to make them available even when an earlier language version is reque
 - `.Capture` method is well-defined for all core types
 - Defined semantics of `.ACCEPTS` on allomorphs
 - `Failure.self` explodes unhandled `Failure`s
+- `Thread.is-initial-thread`: are we running in the initial thread?
+- `Match` provides `.Int` and `.actions`
+- `IO::Socket::Async` provides `.socket-port` and `.peer-port`
 
 #### New Types
 
 - `atomicint`: a native `int` sized to be usable with new atomic operators
+- `Lock::Async`: a non-blocking mechanism for mutual exclusion
 - `Encoding::Registry`:  manage available encodings
 - `Encoding::Encoder`: encoder for a specific encoding
 - `Encoding::Decoder`: decoder for a specific encoding
@@ -237,6 +249,7 @@ may choose to make them available even when an earlier language version is reque
     - `%*SUB-MAIN-OPTS<named-anywhere>` allow named arguments to be
         placed at any position on the command line
 - `$*COLLATION`: configures the four Unicode collation levels
+- `$*INIT-INSTANT`: an `Instant` representing program startup time
 - `$*HOME`: user's home directory, if one exists
 - `&*chdir`: a `Callable` containing a variant of `IO::Path.chdir` that
     also sets process's current directory
@@ -330,6 +343,12 @@ may choose to make them available even when an earlier language version is reque
 - `&fail` with handled `Failure` argument marks it as unhandled
 - `use lib` accepts `IO::Path` objects
 - Anchors `^`, `^^`, `$`, and `$$` are valid in lookarounds
+- `Grammar.made` supports type objects
+- `.isa` supports `subset` type objects
+- `:delete` can be used on lazy arrays
+- `&infix:<eqv>` can work with certain cases of lazy arguments
+- Dynamic lookup (`::(…)`) is restricted regex syntax and
+    requires `use MONKEY-SEE-NO-EVAL` clearance
 
 #### Miscellaneous
 
