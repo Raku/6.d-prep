@@ -165,7 +165,7 @@ methods for a longer period than 6.e release.
 
 - `Rational`s are always reduced on creation and remain
     immutable throughout their life
-- `-Inf`, `Inf`, and `NaN` can be round-tripped through `Rat` type
+- `-Inf`, `Inf`, and `NaN` can be round-tripped through a `Rational` type
     by being represented as values `<-1/0>`, `<1/0>`, and `<0/0`>
     respectively. Zero-denominator `Rational`s are normalized to
     one of those three values
