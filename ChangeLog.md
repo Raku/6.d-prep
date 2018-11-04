@@ -97,7 +97,7 @@ methods for a longer period than 6.e release.
 - `&undefine` (assign `Empty`/`Nil` directly, instead)
 - `:count` argument on `&lines`/`Str.lines` routines
     (use `.elems` call on returned `Seq` instead)
-- `&is_approx` in Test.pm6 (use the very similar `&is-approx` instead)
+- `&is_approx` in Test.pm6 (use the very similar behaviour of `&is-approx` instead)
 
 #### New Behaviors
 
