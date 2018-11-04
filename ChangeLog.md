@@ -282,7 +282,7 @@ methods for a longer period than 6.e release.
 - `Date` provides `.DateTime` method
 - `&infix:<+>`/`&infix:<->` can be called with `Duration`, `DateTime`,
     and `Real` types
-- `Enumeration` provides `.Int`, `.pred`, `.succ`, `.kv`, `.pair`, and methods
+- `Enumeration` provides `.Int`, `.pred`, `.succ`, `.kv`, and `.pair`
 - `.Date` can be called on an `Instant`
 - Junctions can be created using `Junction.new` call
 - `List` type has `.to` and `.from` methods
