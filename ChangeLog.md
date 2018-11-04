@@ -18,7 +18,7 @@
  ##################################################################################
  ```
 
- # Raku Perl 6.d (Diwali) Specification ChangeLog
+ # Perl 6.d (Diwali) Specification ChangeLog
 
 ## Table of Contents
 - [Introduction](#introduction)
