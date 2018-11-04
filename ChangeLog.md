@@ -84,6 +84,26 @@ earlier language version is requested.
 - **[6.d]** On subroutine names, the colonpair with key `sym` (e.g. `:sym<foo>`)
     is reserved, in anticipation of possible future use.
 
+## Deprecations
+
+These methods are deprecated in 6.d language and will be removed in 6.e.
+Implementations may choose to emit deprecation warnings or to offer these
+methods for a longer period than 6.e release.
+
+- The use of `'-'` (single hyphen) as a special path to `&open` to mean the
+    special handles (use `IO::Special` objects instead)
+- `IO::Handle.slurp-rest` (use `.slurp` instead)
+- `Any.flatmap` (use combination of `.flat` and `.map` methods instead)
+- `Cool.path` (use `.IO` instead)
+- `Pair.freeze` (use `Pair.new` with decontainerized arguments instead)
+- `Str.subst-mutate` (use `Str.subst` with `.=` methodcall assign metaop instead)
+- `Rational.norm` (`Rational` types are required to be normalized on creation now)
+- `IO::Path.child` (use `.add` instead)
+- `&undefine` (assign `Empty`/`Nil` directly, instead)
+- `:count` argument on `&lines`/`Str.lines` routines
+    (use `.elems` call on returned `Seq` instead)
+- `&is_approx` in Test.pm6 (use the very similar `&is-approx` instead)
+
 #### New Behaviors
 
 - Improved custom handling of `sub MAIN` via new definable `&RUN-MAIN`,
@@ -463,24 +483,4 @@ earlier language version is requested.
 - Literal constructs `put` and `put for` throw, requiring use of parentheses
 - Expanded specification coverage of Unicode routines and features - Upgraded coverage to Unicode version 11
 - `$.` method call syntax shorthand works with meta-methods
-
-## Deprecations
-
-These methods are deprecated in 6.d language and will be removed in 6.e.
-Implementations may choose to emit deprecation warnings or to offer these
-methods for a longer period than 6.e release.
-
-- The use of `'-'` (single hyphen) as a special path to `&open` to mean the
-    special handles (use `IO::Special` objects instead)
-- `IO::Handle.slurp-rest` (use `.slurp` instead)
-- `Any.flatmap` (use combination of `.flat` and `.map` methods instead)
-- `Cool.path` (use `.IO` instead)
-- `Pair.freeze` (use `Pair.new` with decontainerized arguments instead)
-- `Str.subst-mutate` (use `Str.subst` with `.=` methodcall assign metaop instead)
-- `Rational.norm` (`Rational` types are required to be normalized on creation now)
-- `IO::Path.child` (use `.add` instead)
-- `&undefine` (assign `Empty`/`Nil` directly, instead)
-- `:count` argument on `&lines`/`Str.lines` routines
-    (use `.elems` call on returned `Seq` instead)
-- `&is_approx` in Test.pm6 (use the very similar `&is-approx` instead)
 
