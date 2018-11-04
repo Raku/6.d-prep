@@ -259,9 +259,9 @@ methods for a longer period than 6.e release.
 - `Iterator` provides `.skip-one`, `.skip-at-least`,
     and `.skip-at-least-pull-one`
 - `Mu.emit`: method form of `&emit`
-- `fails-like` in Test.pm6 module: allows testing for Failures
-- `bail-out` in Test.pm6 module: exit out of failing test suite
-- `is-approx` in Test.pm6 module: test a number is approximately like another
+- `&fails-like` in Test.pm6 module: allows testing for Failures
+- `&bail-out` in Test.pm6 module: exit out of failing test suite
+- `&is-approx` in Test.pm6 module: test a number is approximately like another
 - `Buf` has `.allocate`, `.reallocate`, `.append`, `.push`, `.pop`,
     `.splice`, `.subbuf-rw`, `.prepend`, and `.unshift` methods
 - `Range` supports `.rand`
@@ -344,7 +344,7 @@ methods for a longer period than 6.e release.
 - `sink` statement prefix explodes `Failure`s
 - Defined behaviour of `permutations`/`combinations` on 1- and 0-item
     lists and negative and non-Int arguments
-- `val`, `Str.Numeric`, and other `Str` numeric conversion methods
+- `&val`, `Str.Numeric`, and other `Str` numeric conversion methods
     `fail` when trying to convert Unicode `No` character
     group or synthetic numerics
 - Synthetic numerics cannot be used in `:42foo` colonpair shortcut
