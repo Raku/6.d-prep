@@ -366,7 +366,7 @@ methods for a longer period than 6.e release.
 - `.pairup` always returns a `Seq`
 - Synthetic codepoints are rejected from `Date`/`DateTime` constructors
 - `⸨`/`⸩` pair can now be used as matching characters in quoting constructs
-- `.flat` on `Array` type object simply returns that type object
+- `.flat` on an `Array` type object simply returns that type object
 - Mixed-level `classify` on `Hash`es throws
 - `Junction`s can be used to specify multiple keys to `Hash`es
 - The `Callable` given to `.classify-list` is now guaranteed to be
