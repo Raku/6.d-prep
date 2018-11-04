@@ -272,7 +272,6 @@ methods for a longer period than 6.e release.
 - `Code.line`/`.file`: returns the line/file of definition
 - `Proc::Async` provides `.Supply`, `.ready`, `.pid`, `.bind-stdin`,
     `.bind-stdout`, and `.bind-stderr`
-- XXX TODO: https://github.com/rakudo/rakudo/issues/2444
 - `Proc.command`/`Proc::Async.command`: the command we're executing
 - `Proc` provides `.signal`, `.pid`, and `.encoding`
 - `Complex` provides `.cis`, `.reals`, `.ceiling`, `.floor`, `.round`,
