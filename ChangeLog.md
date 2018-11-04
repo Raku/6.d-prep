@@ -233,7 +233,7 @@ methods for a longer period than 6.e release.
     alternatives to `<=`, `>=`, and `!=` respectively
 - `&infix:<unicmp>`/`&infix:<coll>`: alternative behavior of `&infix:<cmp>`
 - `TR///`: non-mutating version of `tr///`
-- `submethod TWEAK`: similar to `BUILD` except runs after defaults has been set
+- `submethod TWEAK`: similar to `BUILD`, except it's compatible with attribute defaults
 - `&duckmap`: apply `&callable` on each element that behaves in such a way
     that `&callable` can be applied
 - `&deepmap`: apply `&callable` on each element, descending into `Iterable`s
