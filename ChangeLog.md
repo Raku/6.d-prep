@@ -277,7 +277,7 @@ methods for a longer period than 6.e release.
 - `Complex` provides `.cis`, `.reals`, `.ceiling`, `.floor`, `.round`,
     `.truncate`, and `.abs` methods and can be compared with `<=>` (as
     long as the imaginary part is negligible)
-- `DateTime` provides `.offset-in-hours`, `.hh-mm-ss` and `.Date`
+- `DateTime` provides `.offset-in-hours`, `.hh-mm-ss`, and `.Date`
 - `DateTime` can be compared with other `DateTime` objects using `<=>` operator
 - `Date` provides `.DateTime` method
 - `&infix:<+>`/`&infix:<->` can be called with `Duration`, `DateTime`,
