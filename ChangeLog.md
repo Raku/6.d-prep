@@ -180,7 +180,7 @@ methods for a longer period than 6.e release.
 
 #### Sets, Bags, Mixes (aka QuantHashes) and set operators
 
-- Set operators can be used on any object and will be coerced when needed
+- Set operators can be used on any object, which will be coerced when needed
   - So no pre-coercion is needed or wanted
   - Set operators are at liberty to not create any QuantHash if they can
     perform the desired functionality without them
