@@ -458,7 +458,6 @@ methods for a longer period than 6.e release.
     - Constraints are fully enforced
     - Attempting to parametarized type constraints on constants
         (i.e. using `my Foo constant @int`) throws `X::ParametricConstant` exception
-- Native `num` variables default to `0e0` instead of `NaN`
 - `Pod` `=defn` (definition list) directive is available
 - `Pod` provides `:numbered` config key
 - `.^ver`, `.^auth`, and `.^name` metamethods are available on `module`
