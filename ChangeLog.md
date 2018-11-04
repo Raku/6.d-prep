@@ -484,13 +484,3 @@ methods for a longer period than 6.e release.
     (use `.elems` call on returned `Seq` instead)
 - `&is_approx` in Test.pm6 (use the very similar `&is-approx` instead)
 
-## Removals
-
-- The 6.c specification contained a number of "fudged" tests, which use special
-  directive to mark a test as "TODO" (or "SKIP"). Any tests that applied a fudge
-  to all implementations (i.e. they did not have at least one working
-  implementation of the behaviour) have been deemed void and have been removed
-  from 6.d language. All new feature proposals for the language now require
-  for at least one language implementation to have that feature implemented
-  as a proof-of-viability, before they're accepted to be a part of a released
-  language specification.
