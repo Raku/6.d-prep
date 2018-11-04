@@ -24,7 +24,7 @@
 - [Introduction](#introduction)
 - [Scope / Target Audience](#scope--target-audience)
 - [Additions](#additions)
-    - [Requiring v6.d](#requiring-v6d)
+    - [Version-Controlled Changes](#version-controlled-changes)
     - [New Behaviors](#new-behaviors)
     - [Math](#math)
     - [Sets, Bags, Mixes (aka QuantHashes) and set operators](#sets-bags-mixes-aka-quanthashes-and-set-operators)
@@ -51,25 +51,20 @@ the status of their implementation in a particular compiler.
 
 ## Scope / Target Audience
 
-This ChangeLog is targeted towards language users, to help with preparation
-to use compilers supporting latest language version. Thus, it does not
-contain every minute change to the specification that occurred.
-Implementations wishing to ensure full compliance with the new version of the
-language specification should execute the test suite and examine any failing
-tests.
+This ChangeLog is targeted towards language users, to help with preparation to use
+compilers supporting latest language version. Thus, it does not contain every minute
+change to the specification that occurred. Implementations wishing to ensure full
+compliance with the new version of the language specification should execute the
+test suite available at https://github.com/perl6/roast/ and examine any failing tests.
 
-## Additions
+There are new features that did not exist in 6.c language. For full details about them,
+please consult with the language documentation on https://docs.perl6.org/
+Items in *Version-Constrolled Changes* section are protected by version pragma and older
+behaviours can be obtained by explicitly using use v6.c to request an older language
+version. All other changes do not conflict with the 6.c language version and implementations
+may choose to make them available even when an earlier language version is requested.
 
-These are new features that did not exist in 6.c language. For details about
-them, please consult with the documentation on https://docs.perl6.org/
-
-Items in `Requiring v6.d` section are protected by version pragma and older
-behaviours can be obtained by explicitly using `use v6.c` to request an older
-language version. All other changes do not conflict with the 6.c language
-version and implementations may choose to make them available even when an
-earlier language version is requested.
-
-#### Requiring v6.d
+#### Version-Constrolled Changes
 
 - **[6.d]** `&await` no longer blocks *a thread* while waiting
 - **[6.d]** `whenever` not in lexical scope of `react` throws
