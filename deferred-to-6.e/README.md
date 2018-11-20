@@ -44,6 +44,8 @@ we can implement right now, rather than have that Issue hold everything up.
 **(Sidenote: be sure to check log(42, 1) does not explode when this is implemented.
 If it's decided not to implement this; change log(42, 1) to give a better error**
 
+Relevant Issue: https://github.com/rakudo/rakudo/issues/2502
+
 Currently, division and related modulus operations with Nums return Failure if the
 divisor is zero. By IEEE rules, those would instead produce a NaN for 0e0/0e0 and
 Inf with the sign of the divident. Note: Division and related modulus operations where
